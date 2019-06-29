@@ -162,7 +162,7 @@ ramp-signal-4 = " "
 ; Best
 ramp-signal-5 = " "
 
-
+click-left = nm-applet
 [module/date]
 type = internal/date
 interval = 5

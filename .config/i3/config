@@ -192,3 +192,4 @@ exec --no-startup-id discord
 # AUTORUN
 exec --no-startup-id feh --bg-scale ~/Images/Fond\ d\'écrans/Arch1.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec urxvt move to workspace $ws10

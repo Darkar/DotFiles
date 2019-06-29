@@ -1,0 +1,19 @@
+!!!!!!!!!!!!!!!!!!!!
+!!! URXVT CONFIG !!!
+!!!!!!!!!!!!!!!!!!!!
+
+!! Configuration générale
+!URxvt*font:            xft:Droid Sans Mono:size=14
+URxvt*transparent: true
+URxvt*shading: 25
+URxvt.perl-ext-common:  default,matcher
+URxvt.url-launcher:     brave
+URxvt.matcher.button:   3
+!URxvt.geometry: 100x40
+URxvt*scrollBar: false
+URxvt*foreground: White
+URxvt*background: #101010
+URxvt.externalBorder: 2
+
+
+
