@@ -56,10 +56,12 @@ module-margin-right = 2
 
 modules-left = i3
 ;modules-center = 
-modules-right = pulseaudio memory cpu network date powermenu
+modules-right = pulseaudio memory cpu mail network date powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+
 
 [module/i3]
 type = internal/i3
@@ -113,9 +115,10 @@ label-urgent-padding = 4
 ; label-separator = |
 
 
-[module/player-mpris-tail]
+[module/mail]
 type = custom/script
-exec = python ~/.config/polybar/player-mpris-tail.py --icon-playing  --icon-paused  --icon-stopped  -f '{:artist:t18:{artist}:}{:artist:: :} {:t40:{title}:} %{A1:python ~/.config/polybar/player-mpris-tail.py previous:}   %{A} %{A1:python ~/.config/polybar/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:python ~/.config/polybar/player-mpris-tail.py next:}   %{A}'
+format-prefix = " "
+exec = ruby ~/.config/polybar/modules/mail.rb
 tail = true
 label = %output%
 format-underline = #57F2AA
@@ -162,7 +165,7 @@ ramp-signal-4 = " "
 ; Best
 ramp-signal-5 = " "
 
-click-left = nm-applet
+
 [module/date]
 type = internal/date
 interval = 5

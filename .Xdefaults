@@ -3,7 +3,7 @@
 !!!!!!!!!!!!!!!!!!!!
 
 !! Configuration générale
-!URxvt*font:            xft:Droid Sans Mono:size=14
+URxvt*font:            xft:HackNerdFontMono:size=11
 URxvt*transparent: true
 URxvt*shading: 25
 URxvt.perl-ext-common:  default,matcher
@@ -14,6 +14,3 @@ URxvt*scrollBar: false
 URxvt*foreground: White
 URxvt*background: #101010
 URxvt.externalBorder: 2
-
-
-

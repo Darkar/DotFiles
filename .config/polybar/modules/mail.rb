@@ -40,6 +40,6 @@ imap = Net::IMAP.new(IMAP_SERVER,port = PORT, usessl = SSL)
 imap.login(IMAP_USER,IMAP_PASS)
 imap.examine(IMAP_FOLDER)
 IS_EXCHANGE == true ? counts = imap.search(["NOT", "DELETED", "UNSEEN"]).size : counts = imap.status(IMAP_FOLDER, ["UNSEEN"])["UNSEEN"]
-counts > 0 ? ( puts("#{CONKYFIED == true ? conkify(counts,NEW_COLOR) : counts}"); get_messages(imap) ) : ( puts("0") )
+counts > 0 ? ( puts(" #{CONKYFIED == true ? conkify(counts,NEW_COLOR) : counts}"); get_messages(imap) ) : ( puts(" 0") )
 imap.disconnect
 exit
