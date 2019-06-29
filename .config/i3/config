@@ -186,6 +186,9 @@ assign [class="code"] $ws3
 assign [class="discord"] $ws9
 exec --no-startup-id discord
 
+assign [class="urxvt"] $ws9
+exec --no-startup-id urxvt
+	
 # Because assign [class="Spotify"] $ws10 doesn't work.
 #for_window [class="Spotify"] move to workspace $ws10
 
