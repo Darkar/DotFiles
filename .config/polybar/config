@@ -122,7 +122,7 @@ exec = ruby ~/.config/polybar/modules/mail.rb
 tail = true
 label = %output%
 format-underline = #57F2AA
-
+click-left = brave https://webmail.magnan.one
 
 [module/checkupdate]
 type = custom/script
@@ -131,7 +131,7 @@ exec = checkupdates+aur | wc -l
 tail = true
 label = %output%
 format-underline = #FFFFFF
-
+click-left = pamac-manager
 
 [module/memory]
 type = internal/memory
@@ -154,7 +154,7 @@ label-connected-foreground = #eefafafa
 label-disconnected-foreground = #66ffffff
 format-connected-underline = #B16761
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = %{A1:nm-connection-editor:}<ramp-signal> <label-connected>%{A}
 format-disconnected = <label-disconnected>
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
@@ -170,7 +170,6 @@ ramp-signal-5 = " "
 type = internal/network
 interface = wlp0s20f0u13
 interval = 3.0
-click-left = nm-connection-editor
 
 label-connected = %essid% %downspeed:9%
 label-connected-foreground = #eefafafa
@@ -178,7 +177,7 @@ label-connected-foreground = #eefafafa
 label-disconnected-foreground = #66ffffff
 format-connected-underline = #B16761
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = %{A1:nm-connection-editor:}<ramp-signal> <label-connected>%{A}
 format-disconnected = <label-disconnected>
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
