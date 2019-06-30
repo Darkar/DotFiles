@@ -31,5 +31,5 @@ export HISTFILE SAVEHIST
 
 #Prompt
 autoload colors; colors
-export PS1="%B%{$fg[blue]%}%n%{$reset_color%}%b@%B%{$fg[red]%}%m%b%{$reset_color%} %B%{$fg[yellow]%}%T%{$reset_color%} %B%{$fg[green]%}$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') fichiers%{$reset_color%} %B%{$fg[cyan]%}[%~%B]%b 
+export PS1="%B%{$fg[blue]%}%n%{$reset_color%}%b@%B%{$fg[red]%}%m%b%{$reset_color%} %B%{$fg[yellow]%}%T%{$reset_color%} %B%{$fg[green]%}$(/bin/ls | /usr/bin/wc -l | /bin/sed 's: ::g') fichiers%{$reset_color%} %B%{$fg[cyan]%}[%~%B]%b 
 >"
