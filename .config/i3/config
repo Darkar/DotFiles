@@ -32,6 +32,9 @@ floating_modifier $mod
 # switch to windows mouse/keyb
 bindsym $alt+a exec ~/.VFIOinput/input_attach.sh
 
+# switch to windows mouse/keyb
+bindsym $mod+l exec i3lock
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -46,12 +49,6 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+m focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up

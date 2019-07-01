@@ -28,7 +28,7 @@ secondary = #e60053
 alert = #e60053
 
 [bar/main]
-monitor = ${env:MONITOR:DP-3}
+monitor = ${env:MONITOR:}
 width = 100%
 height = 32
 
@@ -60,8 +60,6 @@ modules-right = pulseaudio memory mail checkupdate network-wired network-wireles
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-
-
 
 [module/i3]
 type = internal/i3
