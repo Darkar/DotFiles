@@ -8,6 +8,7 @@ alias ls='ls --color=auto'
 alias ll='ls -ll'
 alias clear='clear && neofetch'
 alias magnan-server='ssh root@magnan.one'
+alias windows10='virsh --connect qemu:///system start Windows10'
 
 #Export
 export EDITOR=/usr/bin/vim

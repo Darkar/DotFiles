@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $alt+a exec ~/.VFIOinput/input_attach.sh
 
 # lock
-bindsym $mod+l exec i3lock -i ~/Images/Fond\ d\'écrans/Arch3.png -t
+bindsym $mod+l exec i3lock -i ./lockscreen.png -t
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -190,7 +190,7 @@ exec --no-startup-id discord
 #for_window [class="Spotify"] move to workspace $ws10
 
 # AUTORUN
-exec --no-startup-id feh --bg-scale ~/Images/Fond\ d\'écrans/Arch1.png
+exec --no-startup-id feh --bg-fill ~/.config/i3/background.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
 exec_always --no-startup-id autorandr -c
