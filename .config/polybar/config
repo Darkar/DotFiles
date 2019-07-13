@@ -129,7 +129,8 @@ exec = checkupdates+aur | wc -l
 tail = true
 label = %output%
 format-underline = #FFFFFF
-click-left = pamac-manager
+click-left = urxvt -e yay -Syyu
+interval=120
 
 [module/memory]
 type = internal/memory
