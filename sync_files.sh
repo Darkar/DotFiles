@@ -10,4 +10,5 @@ rsync -v -r --delete-after ~/.Xdefaults .
 rsync -v -r --delete-after ~/.zshrc .
 rsync -v -r --delete-after ~/.face .
 rsync -v -r --delete-after ~/.vimrc .
+rsync -v -r --delete-after ~/.xinitrc .
 
