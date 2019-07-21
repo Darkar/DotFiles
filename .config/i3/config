@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $alt+a exec ~/.VFIOinput/input_attach.sh
 
 # lock
-bindsym $mod+l exec i3lock -i ./lockscreen.png -t
+bindsym $mod+l exec i3lock -i ~/.config/i3/img/lockscreen.png -t
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -42,11 +42,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec dmenu_run
+
+bindsym $mod+a exec --no-startup-id "rofi -show drun -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
+bindsym $mod+d exec --no-startup-id "rofi -show run -font \\"DejaVu 9\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 # change focus
 bindsym $mod+Left focus left
@@ -190,7 +189,7 @@ exec --no-startup-id discord
 #for_window [class="Spotify"] move to workspace $ws10
 
 # AUTORUN
-exec --no-startup-id feh --bg-fill ~/.config/i3/background.png
+exec --no-startup-id feh --bg-fill ~/.config/i3/img/background.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
 exec_always --no-startup-id autorandr -c

@@ -22,24 +22,28 @@ NEW_COLOR = "green"
 SENDER_COLOR = "grey"
 SUBJ_COLOR = "white"
 
-def conkify(text,color)
-    text = "${color #{color}}#{text} $color"
-    return text
-end
+begin
+	def conkify(text,color)
+		text = "${color #{color}}#{text} $color"
+		return text
+	end
 
-def get_messages(conn)
-    imap = conn
-    imap.search(["NOT", "DELETED", "UNSEEN"]).each do |message_id|
-        envelope = imap.fetch(message_id, "ENVELOPE")[0].attr["ENVELOPE"]
-        from, subject = envelope.from[0].name == nil ? envelope.from[0].mailbox : envelope.from[0].name, envelope.subject
-        CONKYFIED == true ? puts("#{conkify(from,SENDER_COLOR)} $alignr#{conkify(subject,SUBJ_COLOR)}") : puts("")
-    end
-end
+	def get_messages(conn)
+		imap = conn
+		imap.search(["NOT", "DELETED", "UNSEEN"]).each do |message_id|
+			envelope = imap.fetch(message_id, "ENVELOPE")[0].attr["ENVELOPE"]
+			from, subject = envelope.from[0].name == nil ? envelope.from[0].mailbox : envelope.from[0].name, envelope.subject
+			CONKYFIED == true ? puts("#{conkify(from,SENDER_COLOR)} $alignr#{conkify(subject,SUBJ_COLOR)}") : puts("")
+		end
+	end
 
-imap = Net::IMAP.new(IMAP_SERVER,port = PORT, usessl = SSL)
-imap.login(IMAP_USER,IMAP_PASS)
-imap.examine(IMAP_FOLDER)
-IS_EXCHANGE == true ? counts = imap.search(["NOT", "DELETED", "UNSEEN"]).size : counts = imap.status(IMAP_FOLDER, ["UNSEEN"])["UNSEEN"]
-counts > 0 ? ( puts(" #{CONKYFIED == true ? conkify(counts,NEW_COLOR) : counts}"); get_messages(imap) ) : ( puts(" 0") )
-imap.disconnect
-exit
+	imap = Net::IMAP.new(IMAP_SERVER,port = PORT, usessl = SSL)
+	imap.login(IMAP_USER,IMAP_PASS)
+	imap.examine(IMAP_FOLDER)
+	IS_EXCHANGE == true ? counts = imap.search(["NOT", "DELETED", "UNSEEN"]).size : counts = imap.status(IMAP_FOLDER, ["UNSEEN"])["UNSEEN"]
+	counts > 0 ? ( puts(" #{CONKYFIED == true ? conkify(counts,NEW_COLOR) : counts}"); get_messages(imap) ) : ( puts(" 0") )
+	imap.disconnect
+	exit
+rescue
+	puts("X")
+end
