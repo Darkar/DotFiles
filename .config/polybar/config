@@ -153,7 +153,7 @@ label-connected-foreground = #eefafafa
 label-disconnected-foreground = #66ffffff
 format-connected-underline = #B16761
 
-format-connected = %{A1:nm-connection-editor:}<ramp-signal> <label-connected>%{A}
+format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
@@ -176,7 +176,7 @@ label-connected-foreground = #eefafafa
 label-disconnected-foreground = #66ffffff
 format-connected-underline = #B16761
 
-format-connected = %{A1:nm-connection-editor:}<ramp-signal> <label-connected>%{A}
+format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst

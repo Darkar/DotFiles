@@ -91,6 +91,12 @@ bindsym $mod+Shift+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# move workspace to other screen
+bindsym $alt+Up move workspace to output up
+bindsym $alt+Down move workspace to output down
+bindsym $alt+Left move workspace to output left
+bindsym $alt+Right move workspace to output right
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
