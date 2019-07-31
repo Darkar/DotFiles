@@ -56,7 +56,7 @@ module-margin-right = 2
 
 modules-left = i3
 ;modules-center = 
-modules-right = pulseaudio memory mail checkupdate network-wired network-wireless date powermenu
+modules-right = pulseaudio memory mail checkupdate network-wired network-wireless battery date powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -203,6 +203,55 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #D92B54
 
 label = %date% %time%
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = ADP1
+
+label-charging =  %percentage%%
+label-discharging =  %percentage%%
+label-full =  
+
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+poll-interval = 5
+
+format-charging-underline = #FDEE00
+format-discharging-underline = #FDEE00
 
 [module/pulseaudio]
 type = internal/pulseaudio
