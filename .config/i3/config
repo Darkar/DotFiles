@@ -53,15 +53,11 @@ bindsym $mod+e layout toggle split
 # Activation du  tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# Focus de la fenêtre parent
-bindsym $mod+Shift+f focus parent
-
 # Déplacement des workspace sur les autres écrans
 bindsym $alt+Left move workspace to output left
+bindsym $alt+Down move workspace to output down
+bindsym $alt+Up move workspace to output up
 bindsym $alt+Right move workspace to output right
-
-# Focus de la fenêtre enfant
-#bindsym $mod+d focus child
 
 # Définition des workspaces
 set $ws1 "1"
@@ -152,6 +148,18 @@ assign [class="code"] $ws3
 
 assign [class="discord"] $ws9
 exec --no-startup-id discord
+
+# Scraptchpad terminal
+bindsym $mod+t [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 5
+for_window [instance="dropdown"] resize set 1225 800
+
+# Scraptchpad shortkey
+bindsym $mod+k [instance="shortkey"] scratchpad show; [instance="shortkey"] move position center
+for_window [instance="shortkey"] move scratchpad
+for_window [instance="shortkey"] border pixel 5
+for_window [instance="shortkey"] resize set 887 900
 	
 # AUTORUN
 exec --no-startup-id dunst 

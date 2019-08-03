@@ -1,0 +1,57 @@
+Key			| Description								|
+------------------------------------------------------------------------------------------------|
+Super+Entrer		| Lance le terminal							|
+Super+l			| Verrouille l'écran							|
+Super+ImprEcran 	| Prend un screenshot de la fenêtre en focus [~/Images/Screenshots]	|
+Super+q			| Ferme la fenêtre sélectionner						|
+Super+a			| Affiche le menu des applications					|
+Super+d 		| Affiche la fenêtre d'éxécution					|
+------------------------------------------------------------------------------------------------|
+Super+Left		| Déplace le focus vers la gauche					|
+Super+Down		| Déplace le focus vers le bas						|
+Super+Up		| Déplace le focus vers haut 						|
+Super+Right		| Déplace le focus vers la droite					|
+------------------------------------------------------------------------------------------------|
+Super+Shift+Left	| Déplace la fenêtre vers la gauche					|
+Super+Shift+Down 	| Déplace la fenêtre vers le bas					|
+Super+Shift+Up		| Déplace la fenêtre vers le haut					|
+Super+Shift+Right	| Déplace la fenere vers la droite					|
+------------------------------------------------------------------------------------------------|
+Super+h			| Split à l'horizontale							|
+Super+v			| Split à la verticale							|
+Super+f			| Activation/Désactivation du plein écran				|
+------------------------------------------------------------------------------------------------|
+Super+s			| Active l'empilement des fenêtre					|
+Super+z			| Active les fenêtre par onglet						|
+Super+e			| Active les fenêtre par tuile						|
+Super+Shift+Espace	| Alterne entre le mode tuile/flottant					|
+------------------------------------------------------------------------------------------------|
+Alt+Left		| Déplace la fenêtre vers l'écran de gauche				|
+Alt+Down		| Déplace la fenêtre vers l'écran du bas				|
+Alt+Up			| Déplace la fenêtre vers l'écran du haut				|
+Alt+Right 		| Déplace la fenêtre vers l'écran de droite				|
+------------------------------------------------------------------------------------------------|
+Super+1			| Déplacement vers l'espace de travail N°1				|
+Super+2                 | Déplacement vers l'espace de travail N°2                              |
+Super+3                 | Déplacement vers l'espace de travail N°3                              |
+Super+4                 | Déplacement vers l'espace de travail N°4                              |
+Super+5                 | Déplacement vers l'espace de travail N°5                              |
+Super+6                 | Déplacement vers l'espace de travail N°6                              |
+Super+7                 | Déplacement vers l'espace de travail N°7                              |
+Super+8                 | Déplacement vers l'espace de travail N°8                              |
+Super+9                 | Déplacement vers l'espace de travail N°9                              |
+Super+0                 | Déplacement vers l'espace de travail N°10                             |
+------------------------------------------------------------------------------------------------|
+Super+Shift+c		| Rechargement du fichier de configuration d'i3				|
+Super+Shift+r		| Redémmarage d'i3							|
+Super+Shidt+e		| Quitter i3								|
+------------------------------------------------------------------------------------------------|
+Super+r			| Activation du mode resize						|
+Left 	(Mode Resize)	| Agrandi la fentre de 10 pixel vers la gauche				|
+Down 	(Mode Resize)	| Agrandi la fentre de 10 pixel vers le bas				|
+Up   	(Mode Resize)	| Agrandi la fentre de 10 pixel vers le haut				|
+Right	(Mode Resize)	| Agrandi la fentre de 10 pixel vers la droite				|
+------------------------------------------------------------------------------------------------|
+Super+t 		| Affiche/Cache le terminal en dropdown					|
+Super+k			| Affiche/Cache les raccourcis						|
+------------------------------------------------------------------------------------------------|
