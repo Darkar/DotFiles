@@ -3,6 +3,7 @@ Key			| Description								|
 Super+Entrer		| Lance le terminal							|
 Super+l			| Verrouille l'écran							|
 Super+ImprEcran 	| Prend un screenshot de la fenêtre en focus [~/Images/Screenshots]	|
+Super+c                 | Ouvre les fichiers de configuration                                   |
 Super+q			| Ferme la fenêtre sélectionner						|
 Super+a			| Affiche le menu des applications					|
 Super+d 		| Affiche la fenêtre d'éxécution					|

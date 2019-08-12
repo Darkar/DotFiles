@@ -1,16 +1,21 @@
-!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!
 !!! URXVT CONFIG !!!
 !!!!!!!!!!!!!!!!!!!!
 
 !! Configuration générale
-URxvt*font:            xft:HackNerdFontMono:size=11
+URxvt*font:            xft:HackNerdFontMono:size=11,xft:Inconsolata\ for\ Powerline:pixelsize=12
 URxvt*transparent: true
 URxvt*shading: 25
 URxvt.perl-ext-common:  default,matcher
 URxvt.url-launcher:     brave
 URxvt.matcher.button:   3
-!URxvt.geometry: 100x40
 URxvt*scrollBar: false
 URxvt*foreground: White
 URxvt*background: #101010
-URxvt.externalBorder: 2
+URxvt.externalBorder: 0
+
+! Configuration du dropdown
+dropdown.transparent: false
+
+! Configuration du shortkey
+shortkey.transparent: false

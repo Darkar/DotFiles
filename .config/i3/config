@@ -14,6 +14,9 @@ bindsym $mod+l exec i3lock -i ~/.config/i3/img/lockscreen.png -t
 # Lance un terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# Ouvrir les fichier de configuration avec geany
+bindsym $mod+c exec geany ~/.config/i3/config ~/.config/polybar/config ~/.config/rofi/config ~/.Xdefaults ~/.vimrc
+
 # Screenshot
 bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e 'mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`' # All screens
 
@@ -146,6 +149,10 @@ exec --no-startup-id brave
 
 assign [class="code"] $ws3
 
+for_window [class="Virt-manager"] move to workspace $ws4
+
+assign [class="steam"] $ws9
+
 assign [class="discord"] $ws9
 exec --no-startup-id discord
 
@@ -159,7 +166,7 @@ for_window [instance="dropdown"] resize set 1225 800
 bindsym $mod+k [instance="shortkey"] scratchpad show; [instance="shortkey"] move position center
 for_window [instance="shortkey"] move scratchpad
 for_window [instance="shortkey"] border pixel 5
-for_window [instance="shortkey"] resize set 887 900
+for_window [instance="shortkey"] resize set 891 900
 	
 # AUTORUN
 exec --no-startup-id dunst 
@@ -167,3 +174,5 @@ exec --no-startup-id feh --bg-fill ~/.config/i3/img/background.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
 exec_always --no-startup-id autorandr -c
+exec --no-startup-id urxvt -name "dropdown"
+exec --no-startup-id urxvt -name "shortkey" -e zsh -c "less ~/.config/i3/shortkey"
