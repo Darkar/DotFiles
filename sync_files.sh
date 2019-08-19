@@ -7,6 +7,7 @@ rsync -v -r --delete-after ~/.config/polybar/ .config/polybar/
 rsync -v -r --delete-after ~/.config/compton/ .config/compton/
 rsync -v -r --delete-after ~/.config/rofi/ .config/rofi/
 rsync -v -r --delete-after ~/.config/neofetch/ .config/neofetch/
+rsync -v -r --delete-after ~/.config/dunst/ .config/dunst/
 rsync -v -r --delete-after ~/.vim/ .vim/
 rsync -v -r --delete-after ~/.Xdefaults .
 rsync -v -r --delete-after ~/.zshrc .

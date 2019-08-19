@@ -15,7 +15,7 @@ bindsym $mod+l exec betterlockscreen -l -t "Mot de passe requis !"
 bindsym $mod+Return exec i3-sensible-terminal
 
 # Ouvrir les fichier de configuration avec geany
-bindsym $mod+c exec geany ~/.config/i3/config ~/.config/polybar/config ~/.config/rofi/config ~/.Xdefaults ~/.vimrc
+bindsym $mod+c exec geany ~/.config/i3/config ~/.config/polybar/config ~/.config/rofi/config ~/.config/dunst/dunstrc ~/.Xdefaults ~/.vimrc
 
 # Screenshot
 bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e 'mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`' # All screens
