@@ -2,7 +2,8 @@ DotFiles
 ========
  - i3 : Gestionnaire de fenêtres 
  - polybar : Barre pour i3 
- - Compton : Transparence pour i3 
+ - Compton : Transparence pour i3
+ - Autorandr : Configuration de l'affichage
  - Rofi: Lanceur d'applications
  - Dunst : Afficheur de notification
  - .Xdefaults : Fichier de configuration d'URxvt
