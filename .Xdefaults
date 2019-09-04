@@ -1,21 +1,79 @@
- !!!!!!!!!!!!!!!!!!!!
-!!! URXVT CONFIG !!!
-!!!!!!!!!!!!!!!!!!!!
+! COLORS
+! ------
 
-!! Configuration générale
-URxvt*font:            xft:HackNerdFontMono:size=11,xft:Inconsolata\ for\ Powerline:pixelsize=12
-URxvt*transparent: true
-URxvt*shading: 25
-URxvt.perl-ext-common:  default,matcher
-URxvt.url-launcher:     brave
-URxvt.matcher.button:   3
+! special
+*.foreground: #d8dee8
+*.background: #212121
+
+! black
+*.color0 : #4b5262
+*.color8 : #434a5a
+
+! red
+*.color1 : #bf616a
+*.color9 : #b3555e
+
+! green
+*.color2 : #a3be8c
+*.color10 : #93ae7c
+
+! yellow
+*.color3 : #ebcb8b
+*.color11 : #dbbb7b
+
+! blue
+*.color4 : #81a1c1
+*.color12 : #7191b1
+
+! magenta
+*.color5 : #b48ead
+*.color13 : #a6809f
+
+! cyan
+*.color6 : #89d0bA
+*.color14 : #7dbba8
+
+! white
+*.color7 : #e5e9f0
+*.color15 : #d1d5dc
+
+! FONTS
+! -----
+
+URxvt*font: xft:Source Code Pro:regular:size=10
+URxvt*boldFont: xft:Source Code Pro:bold:size=10
+URxvt*italicFont: xft:Source Code Pro:italic:size=10
+URxvt*boldItalicFont: xft:Source Code Pro:bold italic:size=10
+
+! XFT FONT CONFIG
+! ---------------
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! TERMINAL CONFIG
+! ---------------
+
+! font spacing
+URxvt*letterSpace: 0
+URxvt.lineSpace: 0
+
+! general settings
+URxvt*saveline: 15000
+URxvt*termName: rxvt-256color
+URxvt*iso14755: false
+URxvt*urgentOnBell: true
+
+! appearance
+URxvt*cursorColor: #d8dee8
+URxvt*depth: 24
 URxvt*scrollBar: false
-URxvt*foreground: White
-URxvt*background: #101010
-URxvt.externalBorder: 0
+URxvt*scrollBar_right: false
+URxvt*internalBorder: 15
+URxvt*externalBorder: 0
+URxvt.geometry: 84x22
 
-! Configuration du dropdown
-dropdown.transparent: false
-
-! Configuration du shortkey
-shortkey.transparent: false

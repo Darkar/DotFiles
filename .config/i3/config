@@ -150,8 +150,11 @@ assign [class="Brave"] $ws1
 exec --no-startup-id brave
 
 assign [class="code"] $ws3
+assign [class="rstudio-bin"] $ws3
 
 for_window [class="Virt-manager"] move to workspace $ws4
+
+for_window [class="GNS3"] move to workspace $ws4
 
 assign [class="steam"] $ws9
 
