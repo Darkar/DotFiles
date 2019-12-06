@@ -178,4 +178,3 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
 exec_always --no-startup-id autorandr -c
 exec --no-startup-id urxvt -name "dropdown"
-exec --no-startup-id urxvt -name "shortkey" -e zsh -c "less ~/.config/i3/shortkey"

@@ -143,9 +143,8 @@ label = %percentage_used%%
 type = internal/network
 interface = enp4s0f1
 interval = 3.0
-click-left = nm-connection-editor
 
-label-connected = Connexion filaire %downspeed:9%
+label-connected = %{A1:wicd-gtk:}Connexion filaire %downspeed:9%%{A}
 label-connected-foreground = #eefafafa
 ;label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
@@ -168,7 +167,7 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 
-label-connected = %essid% %downspeed:9%
+label-connected = %{A1:wicd-gtk:}%essid% %downspeed:9%%{A}
 label-connected-foreground = #eefafafa
 ;label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
