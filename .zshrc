@@ -7,9 +7,10 @@ neofetch
 alias ls='ls --color=auto'
 alias ll='ls -ll'
 alias clear='clear && neofetch'
-alias magnan-server='ssh root@magnan.one'
+alias magnan-server='ssh jeremy@magnan.one'
 
 #Export
+export PATH=/opt/anaconda3/bin:$PATH.
 export EDITOR=/usr/bin/vim
 
 # Correction des commandes
