@@ -3,7 +3,7 @@ require 'net/imap'
 # Stuff you can set
 ## If you can't figure out the first three, give up now
 IMAP_USER = "jeremy@magnan.one"
-IMAP_PASS = "Monster842"
+IMAP_PASS = "nuAU7Rj64j3C5GWf"
 IMAP_SERVER = "ex2.mail.ovh.net"
 ## Are we using SSL?
 SSL = true

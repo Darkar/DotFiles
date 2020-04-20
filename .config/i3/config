@@ -9,7 +9,7 @@ set $alt Mod1
 floating_modifier $mod
 
 # Verrouille l'écran
-bindsym $mod+l exec betterlockscreen -l -t "Mot de passe requis !"
+bindsym $mod+l exec dm-tool switch-to-greeter
 
 # Lance un terminal
 bindsym $mod+Return exec i3-sensible-terminal
