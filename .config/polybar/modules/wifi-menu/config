@@ -1,4 +1,4 @@
-# Config for rofi-wifi-menu
+# Config for wifi-menu
 
 # position values:
 # 1 2 3
@@ -16,4 +16,4 @@ XOFF=0
 FIELDS=SSID,SECURITY,SIGNAL
 
 #font
-FONT="DejaVu Sans Mono 8"
+FONT="Source Code Pro 12"

@@ -6,7 +6,7 @@ neofetch
 # Alias général
 alias ls='ls --color=auto'
 alias ll='ls -ll'
-alias clear='clear && neofetch'
+#alias clear='clear && neofetch'
 alias magnan-server='ssh jeremy@magnan.one -p 2244'
 
 # Export

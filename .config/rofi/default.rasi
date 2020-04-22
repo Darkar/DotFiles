@@ -1,7 +1,4 @@
 configuration {
-  display-drun:   "Activate";
-  display-run:    "Run";
-  display-window: "Window";
   show-icons:     true;
   sidebar-mode:   false;
   font: "Source Code Pro 12";  
@@ -49,7 +46,7 @@ window {
 
 mainbox {
   spacing:  0.5em;
-  children: [entry,listview,mode-switcher];
+  children: [entry,listview];
 }
 
 button {
