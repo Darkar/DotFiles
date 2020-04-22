@@ -168,14 +168,14 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 
-label-connected = %{A1:nm-connection-editor:}%essid% %downspeed:9%%{A}
+label-connected = %essid% %downspeed:9%
 label-connected-foreground = #eefafafa
 ;label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
 format-connected-underline = #B16761
 
-format-connected = <ramp-signal> <label-connected>
-format-disconnected = <label-disconnected>
+format-connected = %{A1:$HOME/.config/polybar/modules/rofi-wifi-menu/rofi-wifi-menu.sh:}<ramp-signal> <label-connected>%{A} 
+format-disconnected = %{A1:$HOME/.config/polybar/modules/rofi-wifi-menu/rofi-wifi-menu.sh:}<label-disconnected>%{A}
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
 ramp-signal-0 = " "
