@@ -24,8 +24,8 @@ bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e 'mkdir -p ~/Images/Screen
 bindsym $mod+Q kill
 
 # Lancement des menus
-bindsym $mod+a exec --no-startup-id "rofi -show drun -theme default -run-shell-command '{terminal} -e {cmd}'"
-bindsym $mod+d exec --no-startup-id "rofi -show run -theme default -run-shell-command '{terminal} -e {cmd}'"
+bindsym $mod+a exec --no-startup-id "rofi -show drun -theme network -run-shell-command '{terminal} -e {cmd}'"
+bindsym $mod+d exec --no-startup-id "rofi -show run -theme network -run-shell-command '{terminal} -e {cmd}'"
 
 # Change le focus
 bindsym $mod+Left focus left
