@@ -4,7 +4,7 @@ require 'net/imap'
 ## If you can't figure out the first three, give up now
 IMAP_USER = "jeremy@magnan.one"
 IMAP_PASS = "nuAU7Rj64j3C5GWf"
-IMAP_SERVER = "ex2.mail.ovh.net"
+IMAP_SERVER = "pro2.mail.ovh.net"
 ## Are we using SSL?
 SSL = true
 ## What port? Usually 993 for SSL

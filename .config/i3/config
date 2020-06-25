@@ -5,8 +5,11 @@
 set $mod Mod4
 set $alt Mod1
 
-# Déplacement d'une fenêtre en mdoe floating
+# Déplacement d'une fenêtre en modse floating
 floating_modifier $mod
+
+#bindsym $mod+button1 move left
+#bindsym $mod+button1 move right
 
 # Verrouille l'écran
 bindsym $mod+l exec dm-tool switch-to-greeter
@@ -139,9 +142,22 @@ bindsym $mod+r mode "resize"
 gaps inner 10
 gaps outer 6
 
-# Suppression de la barre de titre
+# Suppression de la bordure
+#for_window [class=".*"] border normal 0
+
+# Suppression de la bordure et de la barre de titre
 for_window [class=".*"] border pixel 0
-client.focused #262626 #262626 #ffffff #262626 #262626
+
+# Titre des fenêtre
+#for_window [class=".*"] title_format "%title"
+
+# Alignement au centre du titre des fenêtre
+title_align center
+
+# class         		border  backgr. text    indicator child_border  
+client.focused_inactive #333333 #333333 #999999 #333333 #333333                                                                        
+client.unfocused        #333333 #333333 #999999 #333333 #333333                                                                            
+client.focused          #333333 #333333 #ffffff #333333 #333333  
 
 # Assignation des workspaces
 assign [class="Brave"] $ws1
