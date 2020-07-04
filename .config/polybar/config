@@ -1,0 +1,325 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #222
+background-alt = #aa0b0e0f
+;foreground = ${xrdb:color7:#222}
+foreground = #DFDFDF
+foreground-alt = #999999
+primary = #2BABD9
+secondary = #e60000
+alert = #e60000
+
+[bar/main]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 32
+
+font-0 = xos4 Terminus:size=11;2
+font-1 = HackNerdFontMono:size=11;2
+
+background = #aa0b0e0f
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-top-size = 10
+border-left-size = 14
+border-right-size = 14
+border-bottom-size = 0
+border-color = #00000000
+
+padding-left = 2
+padding-right = 5
+
+module-margin-left = 4
+module-margin-right = 2
+
+modules-left = i3 bspwm
+;modules-center = 
+modules-right = pulseaudio cpu memory mail checkupdate network-wired network-wireless date powermenu
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+wm-restack = bspwm
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; workspace icons
+ws-icon-active-font = 1
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 3
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon%
+label-unfocused-padding = 3
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 4
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/bspwm]
+type = internal/bspwm
+format = <label-state> <label-mode>
+
+; Output mode flags after focused state label
+inline-mode = true
+
+; Use fuzzy (partial) matching on labels when assigning 
+fuzzy-match = true
+
+;label-focused = %index%
+label-focused = %icon%  
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 3
+ 
+;label-occupied = %index%
+label-occupied = %icon% 
+label-occupied-padding = 3
+ 
+;label-urgent = %index%!
+label-urgent = %icon% 
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 3
+ 
+;label-empty = %index%R
+label-empty = %icon%  
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 3
+
+ws-icon-0 = web;
+ws-icon-1 = files;
+ws-icon-2 = dev;
+ws-icon-3 = virtualisation;
+ws-icon-4 = other1;
+ws-icon-5 = other2;
+ws-icon-6 = other3;
+ws-icon-7 = games;
+ws-icon-8 = discord;
+ws-icon-9 = term;
+ws-icon-default = 
+
+[module/mail]
+type = custom/script
+format-prefix = " "
+exec = ruby ~/.config/polybar/modules/mail.rb
+tail = true
+label = %output%
+format-underline = #57F2AA
+click-left = brave webmail.magnan.one
+
+[module/checkupdate]
+type = custom/script
+format-prefix = " "
+exec = checkupdates+aur | wc -l
+tail = true
+label = %output%
+format-underline = #FFFFFF
+click-left = alacritty -e yay -Syyu
+interval=120
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #ff6600
+label = %percentage_used%%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #FDEE00
+label = %percentage%%
+
+[module/network-wired]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+label-connected = %{A1:nm-connection-editor:}Connexion filaire %downspeed:9%%{A}
+label-connected-foreground = #eefafafa
+;label-disconnected = Aucune connexion
+label-disconnected-foreground = #66ffffff
+format-connected-underline = #B16761
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = <label-disconnected>
+ramp-signal-foreground = ${colors.foreground-alt}
+; Worst
+ramp-signal-0 = " "
+ramp-signal-1 = " "
+ramp-signal-2 = " "
+ramp-signal-3 = " "
+ramp-signal-4 = " "
+; Best
+ramp-signal-5 = " "
+
+[module/network-wireless]
+type = internal/network
+interface = wlp0s20f0u13
+interval = 3.0
+
+label-connected = %{A1:nm-connection-editor:}%essid% %downspeed:9%%{A}
+label-connected-foreground = #eefafafa
+;label-disconnected = Aucune connexion
+label-disconnected-foreground = #66ffffff
+format-connected-underline = #B16761
+
+format-connected = %{A1:$HOME/.config/polybar/modules/wifi-menu/wifi-menu.sh:}<ramp-signal> <label-connected>%{A} 
+format-disconnected = %{A1:$HOME/.config/polybar/modules/wifi-menu/wifi-menu.sh:}<label-disconnected>%{A}
+ramp-signal-foreground = ${colors.foreground-alt}
+; Worst
+ramp-signal-0 = " "
+ramp-signal-1 = " "
+ramp-signal-2 = " "
+ramp-signal-3 = " "
+ramp-signal-4 = " "
+; Best
+ramp-signal-5 = " "
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = 
+date-alt = "%d/%m/%Y"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #D92B54
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+sink = alsa_output.usb-Astro_Gaming_Astro_MixAmp_Pro-00.analog-stereo
+
+format-volume = <label-volume> <bar-volume>
+label-volume =   %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted =   Mute
+label-muted-foreground = ${colors.foreground-alt}
+
+bar-volume-width = 5
+bar-volume-foreground-0 = #0b8e81
+bar-volume-foreground-1 = #0b8e81
+bar-volume-foreground-2 = #0b8e81
+bar-volume-foreground-3 = #0b8e81
+bar-volume-foreground-4 = #0b8e81
+bar-volume-foreground-5 = #0b8e81
+bar-volume-foreground-6 = #0b8e81
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+q
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = ""
+label-open-foreground = ${colors.secondary}
+label-close = Annuler
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = Redémarrer
+menu-0-0-exec = menu-open-1
+menu-0-1 = Eteindre
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = Retour
+menu-1-0-exec = menu-open-0
+menu-1-1 = Redémarrer
+menu-1-1-exec = reboot
+
+menu-2-0 = Eteindre
+menu-2-0-exec = poweroff
+menu-2-1 = Retour
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
