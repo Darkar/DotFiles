@@ -7,6 +7,7 @@ DotFiles
  - Rofi : Lanceur d'applications
  - Neofetch : Afficheur d'information dans le terminal
  - Dunst : Afficheur de notification
+ - Alacritty : Terminal
  - .Xdefaults : Fichier de configuration d'URxvt
  - .face : Image de l'avatar 
  - .zshrc : Fichier de configuration de ZSH
