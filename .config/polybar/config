@@ -53,7 +53,7 @@ padding-right = 5
 module-margin-left = 4
 module-margin-right = 2
 
-modules-left = i3 bspwm
+modules-left = i3
 ;modules-center = 
 modules-right = pulseaudio cpu memory mail checkupdate network-wired network-wireless date powermenu
 
@@ -113,47 +113,6 @@ label-urgent-padding = 4
 ; Separator in between workspaces
 ; label-separator = |
 
-[module/bspwm]
-type = internal/bspwm
-format = <label-state> <label-mode>
-
-; Output mode flags after focused state label
-inline-mode = true
-
-; Use fuzzy (partial) matching on labels when assigning 
-fuzzy-match = true
-
-;label-focused = %index%
-label-focused = %icon%  
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 3
- 
-;label-occupied = %index%
-label-occupied = %icon% 
-label-occupied-padding = 3
- 
-;label-urgent = %index%!
-label-urgent = %icon% 
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 3
- 
-;label-empty = %index%R
-label-empty = %icon%  
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 3
-
-ws-icon-0 = web;
-ws-icon-1 = files;
-ws-icon-2 = dev;
-ws-icon-3 = virtualisation;
-ws-icon-4 = other1;
-ws-icon-5 = other2;
-ws-icon-6 = other3;
-ws-icon-7 = games;
-ws-icon-8 = discord;
-ws-icon-9 = term;
-ws-icon-default = 
 
 [module/mail]
 type = custom/script
