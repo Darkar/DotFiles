@@ -182,7 +182,7 @@ for_window [instance="dropdown"] resize set 1225 800
 
 # AUTORUN
 exec --no-startup-id dunst 
-exec --no-startup-id feh --bg-fill ~/.config/i3/img/background.jpg
+exec --no-startup-id feh --randomize --bg-fill /home/jeremy/.config/i3/bg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id alacritty --config-file=$HOME/.config/alacritty/dropdown.yml
