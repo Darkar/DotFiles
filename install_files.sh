@@ -2,6 +2,7 @@
 
 # Require rsync
 
+rsync -v -r --delete-after .conky/ ~/.conky/
 rsync -v -r --delete-after .config/i3/ ~/.config/i3/ 
 rsync -v -r --delete-after .config/polybar/ ~/.config/polybar/ 
 rsync -v -r --delete-after .config/compton/ ~/.config/compton/ 

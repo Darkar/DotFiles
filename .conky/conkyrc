@@ -1,0 +1,79 @@
+alignment top_right
+xinerama_head 0
+background no
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont DejaVu Sans Mono:size=12
+gap_x 5
+gap_y 60
+minimum_size 340 500
+maximum_width 700
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_type normal
+own_window_transparent no
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+own_window_colour 000000
+own_window_argb_value 0
+stippled_borders 0
+update_interval 0.5
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+if_up_strictness address
+use_spacer none
+
+TEXT
+Bonjour, Jérémy | ${exec date +'%R'} | ${exec date +'%d/%m/%Y'}
+${execi 28800 /home/jeremy/.conky/modules/ip.pl}
+Système $hr
+${color lightblue} Système d'exploitation:$color $sysname
+${color lightblue} Distribution:$color ${exec lsb_release -si}
+${color lightblue} Noyau:$color $kernel
+${color lightblue} Architecture:$color $machine
+${color lightblue} Mise à jours: $color${execi 120 checkupdates+aur | wc -l} disponible(s)
+
+${color lightblue} Uptime:$color $uptime
+${color lightblue} Fréquence (en MHz):$color $freq
+${color lightblue} RAM:$color $mem/$memmax - $memperc% ${membar 4}
+${color lightblue} CPU:$color $cpu% ${cpubar 4}
+${color lightblue} Processus:$color $processes  ${color lightblue}En cours:$color $running_processes
+
+Système de fichiers $hr 
+${color lightblue} / : $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
+${color lightblue} Magnan : $color${fs_used /run/media/jeremy/MAGNAN/}/${fs_size /run/media/jeremy/MAGNAN/} ${fs_bar 6 /run/media/jeremy/MAGNAN/}
+${color lightblue} Sauvegarde : $color${fs_used /run/media/jeremy/SAUVEGARDE}/${fs_size /run/media/jeremy/SAUVEGARDE/} ${fs_bar 6 /run/media/jeremy/SAUVEGARDE/}
+
+${if_up wlp0s20f0u13}Réseau Wifi $hr
+${color lightblue} ESSID:$color${wireless_essid wlp0s20f0u13}
+${color lightblue} Signal:$color${wireless_link_qual_perc wlp0s20f0u13 }%
+${color lightblue} IP Locale:$color${addr wlp0s20f0u13}
+${color lightblue} IP Publique:$color ${exec curl https://ipinfo.io/ip}
+
+${color lightblue} Téléversement:$color ${upspeed wlp3s0}
+${color lightblue} Téléchargement:$color ${downspeed wlp3s0 }${endif}${if_up enp0s31f6}Réseau filaire $hr
+${color lightblue} IP Locale: $color${addr enp0s31f6}
+${color lightblue} IP Publique: $color${exec curl https://ipinfo.io/ip}
+
+${color lightblue} Téléversement:$color ${upspeed enp0s31f6}
+${color lightblue} Téléchargement:$color ${downspeed enp0s31f6}${endif}
+
+Hyperviseur $hr
+${texeci 60 /home/jeremy/.conky/modules/virt.py}
+Mails $hr
+${texeci 120 ruby /home/jeremy/.conky/modules/mail.rb}
+
