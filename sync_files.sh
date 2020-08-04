@@ -2,8 +2,9 @@
 
 # Require rsync
 
+rsync -v -r --delete-after ~/.conky/ .conky/ --exclude "config.rb" --exclude "get_ip"
 rsync -v -r --delete-after ~/.config/i3/ .config/i3/
-rsync -v -r --delete-after ~/.config/polybar/ .config/polybar/
+rsync -v -r --delete-after ~/.config/polybar/ .config/polybar/ --exclude "config.rb" 
 rsync -v -r --delete-after ~/.config/compton/ .config/compton/
 rsync -v -r --delete-after ~/.config/autorandr/ .config/autorandr/
 rsync -v -r --delete-after ~/.config/rofi/ .config/rofi/

@@ -1,0 +1,45 @@
+alignment top_middle
+background no
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont DejaVu Sans Mono:size=12
+gap_x 5
+gap_y 60
+net_avg_samples 2
+double_buffer yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_argb_visual yes
+own_window_colour 000000
+own_window_argb_value 0
+stippled_borders 0
+update_interval 0.5
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+if_up_strictness address
+use_spacer none
+
+TEXT
+Market $hr
+${color lightblue} ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py bitcoin }:$color ${goto 110}${texeci 60 /home/jeremy/.conky/modules/crypto-market.py bitcoin_price } ${goto 200} | 1h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py bitcoin_1h } ${goto 340} | 24h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py bitcoin_24h } ${goto 500} | 7j: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py bitcoin_7d } 
+${color lightblue} ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py ethereum }:$color ${goto 110}${texeci 60 /home/jeremy/.conky/modules/crypto-market.py ethereum_price } ${goto 200} | 1h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py ethereum_1h } ${goto 340} | 24h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py ethereum_24h } ${goto 500} | 7j: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py ethereum_7d } 
+${color lightblue} BNB:$color ${goto 110}${texeci 60 /home/jeremy/.conky/modules/crypto-market.py binancecoin_price } ${goto 200} | 1h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py binancecoin_1h } ${goto 340} | 24h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py binancecoin_24h } ${goto 500} | 7j: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py binancecoin_7d }
+${color lightblue} ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py tezos }:$color ${goto 110}${texeci 60 /home/jeremy/.conky/modules/crypto-market.py tezos_price } ${goto 200} | 1h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py tezos_1h } ${goto 340} | 24h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py tezos_24h } ${goto 500} | 7j: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py tezos_7d } 
+${color lightblue} BAT:$color ${goto 110}${texeci 60 /home/jeremy/.conky/modules/crypto-market.py basic-attention-token_price } ${goto 200} | 1h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py basic-attention-token_1h } ${goto 340} | 24h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py basic-attention-token_24h } ${goto 500} | 7j: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py basic-attention-token_7d } 
+${color lightblue} ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py chiliz }:$color ${goto 110}${texeci 60 /home/jeremy/.conky/modules/crypto-market.py chiliz_price } ${goto 200} | 1h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py chiliz_1h } ${goto 340} | 24h: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py chiliz_24h } ${goto 500} | 7j: ${texeci 60 /home/jeremy/.conky/modules/crypto-market.py chiliz_7d } 
+

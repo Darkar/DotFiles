@@ -1,5 +1,6 @@
 DotFiles
 ========
+ - conky : Moniteur système
  - i3 : Gestionnaire de fenêtres 
  - polybar : Barre pour i3 
  - Compton : Transparence pour i3
