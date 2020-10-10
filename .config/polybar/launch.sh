@@ -13,7 +13,7 @@ if type "xrandr"; then
     MONITOR=$m polybar --reload main &
   done
 else
-  polybar --reload example &
+  polybar --reload main &
 fi
 
 echo "Polybar lancé..."

@@ -1,10 +1,12 @@
 #!/usr/bin/ruby
 require 'net/imap'
+require_relative 'config.rb'
+
 # Stuff you can set
 ## If you can't figure out the first three, give up now
-IMAP_USER = "jeremy@magnan.one"
-IMAP_PASS = "nuAU7Rj64j3C5GWf"
-IMAP_SERVER = "ex2.mail.ovh.net"
+IMAP_USER = USER
+IMAP_PASS = PASSWORD
+IMAP_SERVER = SERVER
 ## Are we using SSL?
 SSL = true
 ## What port? Usually 993 for SSL

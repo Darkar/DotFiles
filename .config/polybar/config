@@ -18,44 +18,44 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #aa0b0e0f
+background = #222222
+background-alt = #222222
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #999999
-primary = #2BABD9
+foreground = #ffffff
+foreground-alt = #ffffff
+primary = #ffffff
 secondary = #e60053
-alert = #e60053
+alert = #333
 
 [bar/main]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 32
 
-font-0 = xos4 Terminus:size=11;
+font-0 = Terminus (TTF):size=11;0
 font-1 = HackNerdFontMono:size=11;2
 
-background = #aa0b0e0f
+background = #111111
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = #000000
 
-border-top-size = 10
-border-left-size = 14
-border-right-size = 14
+border-top-size = 0
+border-left-size = 0
+border-right-size = 0
 border-bottom-size = 0
 border-color = #00000000
 
-padding-left = 2
-padding-right = 5
+padding-left = 1
+padding-right = 2
 
-module-margin-left = 4
-module-margin-right = 2
+module-margin-left = 0
+module-margin-right = 3
 
 modules-left = i3
 ;modules-center = 
-modules-right = pulseaudio memory mail checkupdate network-wired network-wireless battery date powermenu
+modules-right = pulseaudio memory cpu mail checkupdate bluetooth network-wired network-wireless battery date power
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -91,11 +91,11 @@ ws-icon-default = 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 3
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
-label-unfocused-padding = 3
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
@@ -106,7 +106,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 4
+label-urgent-padding = 3
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -117,7 +117,7 @@ format-prefix = " "
 exec = ruby ~/.config/polybar/modules/mail.rb
 tail = true
 label = %output%
-format-underline = #57F2AA
+;format-underline = #57F2AA
 click-left = brave https://webmail.magnan.one
 
 [module/checkupdate]
@@ -126,7 +126,7 @@ format-prefix = " "
 exec = checkupdates+aur | wc -l
 tail = true
 label = %output%
-format-underline = #FFFFFF
+;format-underline = #FFFFFF
 click-left = alacritty -e yay -Syyu
 interval=120
 
@@ -135,23 +135,38 @@ type = internal/memory
 interval = 2
 format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #ff6600
+;format-underline = #ff6600
 label = %percentage_used%%
 
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/modules/bluetooth.sh
+interval = 2
+click-left = exec ~/.config/polybar/modules/toggle_bluetooth.sh
+click-right = exec blueberry
+;format-underline = #ABCEDF
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #FDEE00
+label = %percentage%%
 
 [module/network-wired]
 type = internal/network
 interface = enp4s0f1
 interval = 3.0
 
-label-connected = %{A1:nm-connection-editor:}Connexion filaire %downspeed:9%%{A}
+label-connected = Connexion filaire [%local_ip%]
 label-connected-foreground = #eefafafa
 ;label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
-format-connected-underline = #B16761
+;format-connected-underline = #B16761
 
-format-connected = <ramp-signal> <label-connected>
-format-disconnected = <label-disconnected>
+format-connected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<ramp-signal><label-connected>%{A} 
+;format-disconnected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<label-disconnected>%{A}
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
 ramp-signal-0 = " "
@@ -167,14 +182,14 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 
-label-connected = %essid% %downspeed:9%
+label-connected = %essid% [%local_ip%]
 label-connected-foreground = #eefafafa
 ;label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
-format-connected-underline = #B16761
+;format-connected-underline = #B16761
 
-format-connected = %{A1:$HOME/.config/polybar/modules/wifi-menu/wifi-menu.sh:}<ramp-signal> <label-connected>%{A} 
-format-disconnected = %{A1:$HOME/.config/polybar/modules/wifi-menu/wifi-menu.sh:}<label-disconnected>%{A}
+format-connected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<ramp-signal> <label-connected>%{A} 
+;format-disconnected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<label-disconnected>%{A}
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
 ramp-signal-0 = " "
@@ -197,7 +212,7 @@ time-alt = %H:%M:%S
 
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #D92B54
+;format-underline = #D92B54
 
 label = %date% %time%
 
@@ -247,8 +262,8 @@ animation-discharging-framerate = 500
 
 poll-interval = 5
 
-format-charging-underline = #FDEE00
-format-discharging-underline = #FDEE00
+;format-charging-underline = #FDEE00
+;format-discharging-underline = #FDEE00
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -277,41 +292,10 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close = Annuler
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = Redémarrer
-menu-0-0-exec = menu-open-1
-menu-0-1 = Déconnexion
-menu-0-1-exec = menu-open-2
-menu-0-2 = Eteindre
-menu-0-2-exec = menu-open-3
-
-menu-1-0 = Retour
-menu-1-0-exec = menu-open-0
-menu-1-1 = Redémarrer
-menu-1-1-exec = reboot
-
-menu-2-0 = Déconnexion
-menu-2-0-exec = i3-msg exit
-menu-2-1 = Retour
-menu-2-1-exec = menu-open-0
-
-menu-3-0 = Eteindre
-menu-3-0-exec = poweroff
-menu-3-1 = Retour
-menu-3-1-exec = menu-open-0
+[module/power]
+type = custom/script
+exec = echo "  "
+click-left = exec ~/.config/polybar/modules/power.sh
 
 [settings]
 screenchange-reload = true

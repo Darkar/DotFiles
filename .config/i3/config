@@ -139,6 +139,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Gaps
+for_window [class=".*"] border pixel 6
 gaps inner 10
 gaps outer 6
 
@@ -192,5 +193,5 @@ exec --no-startup-id dunst
 exec --no-startup-id feh --randomize --bg-fill /home/jeremy/.config/i3/bg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
-exec_always --no-startup-id autorandr -c
+exec_always --no-startup-id xrandr --output HDMI2 --auto --right-of eDP1
 exec --no-startup-id alacritty --config-file=$HOME/.config/alacritty/dropdown.yml

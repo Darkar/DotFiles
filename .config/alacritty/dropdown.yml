@@ -28,22 +28,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Source Code Pro
+    family: Terminus (TTF)
     style: Bold
 
   # Bold font face
   bold:
-    family: Source Code Pro
+    family: Terminus (TTF)
     style: Bold
 
   # Italic font face
   italic:
-    family: Source Code Pro
+    family: Terminus (TTF)
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: Source Code Pro
+    family: Terminus (TTF)
     style: Bold Italic
 
   # Point size
@@ -60,8 +60,8 @@ font:
 colors:
   # Default colors
   primary:
-    background: '0x0f111a'
-    foreground: '0xD8DEE9'
+    background: '0x111111'
+    foreground: '0xFFFFFF'
     selection:
     text: '0x282a36'
 
