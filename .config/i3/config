@@ -15,7 +15,7 @@ bindsym $mod+l exec dm-tool switch-to-greeter
 bindsym $mod+Return exec alacritty
 
 # Ouvrir les fichier de configuration avec geany
-bindsym $mod+c exec geany ~/.config/i3/config ~/.config/polybar/config ~/.config/rofi/default.rasi ~/.config/dunst/dunstrc  ~/.config/alacritty/alacritty.yml ~/.vimrc
+bindsym $mod+c exec geany ~/.config/i3/config ~/.config/polybar/config ~/.config/rofi/default.rasi ~/.config/rofi/menu.rasi  ~/.config/dunst/dunstrc  ~/.config/alacritty/alacritty.yml ~/.vimrc
 
 # Screenshot
 bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e 'mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`' # All screens

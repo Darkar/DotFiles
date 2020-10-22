@@ -33,7 +33,7 @@ height = 32
 font-0 = Terminus (TTF):size=12;0
 font-1 = HackNerdFontMono:size=11;2
 
-background = #aa0b0e0f
+background = #111111
 foreground = ${colors.foreground}
 
 line-size = 3
