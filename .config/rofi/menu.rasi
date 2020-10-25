@@ -1,14 +1,14 @@
 configuration {
   show-icons:     true;
   sidebar-mode:   false;
-  font: "Source Code Pro 12";  
+  font: "Terminus (TTF) 16";  
 }
 
 * {
   background-color: #212121;
   text-color:       #ECEFF4;
-  selbg:            #4C566A;
-  actbg:            #2BABD9;
+  selbg:            #FFFFFF;
+  actbg:            #111111;
   urgbg:            #BF616A;
   winbg:            @text-color;
 

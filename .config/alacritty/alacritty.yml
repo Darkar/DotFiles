@@ -48,6 +48,7 @@ font:
 
   # Point size
   size: 8
+  
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -92,4 +93,4 @@ key_bindings:
   - { key: C,        mods: Control|Alt, action: Copy                   }
 
 
-background_opacity: 0.7
+background_opacity: 0.5
