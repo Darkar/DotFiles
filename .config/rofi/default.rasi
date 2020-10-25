@@ -2,7 +2,7 @@ configuration {
 	width: 25;
 	lines: 10;
 	columns: 1;
-	font: "Source Code Pro 6";
+	font: "Terminus (TTF) 7";
 	bw: 0;
 	location: 0;
 
