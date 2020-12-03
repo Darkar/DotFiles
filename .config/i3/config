@@ -171,6 +171,8 @@ for_window [class="Virt-manager"] move to workspace $ws4
 for_window [class="vmware"] move to workspace $ws4
 for_window [class="GNS3"] move to workspace $ws4
 
+assign [class="battle.net.exe"] $ws8
+
 assign [class="steam"] $ws9
 
 assign [class="discord"] $ws9
@@ -195,3 +197,4 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
 exec_always --no-startup-id xrandr --output HDMI2 --auto --primary --right-of eDP1
 exec --no-startup-id alacritty --config-file=$HOME/.config/alacritty/dropdown.yml
+exec --no-startup-id xkb-switch --i3
