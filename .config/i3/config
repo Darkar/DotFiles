@@ -164,6 +164,7 @@ assign [class="brakets"] $ws3
 assign [class="eclipse"] $ws3
 
 assign [class="Virt-manager"] $ws4
+assign [class="Vmware"] $ws4
 
 assign [class="GNS3"] $ws4
 
