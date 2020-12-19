@@ -1,0 +1,194 @@
+####################################
+# Fichier de configuration de sway #
+####################################
+
+set $mod Mod4
+set $alt Mod1
+
+# Déplacement d'une fenêtre en modse floating
+floating_modifier $mod
+
+#bindsym $mod+button1 move left
+#bindsym $mod+button1 move right
+
+# Alignement au centre du titre des fenêtre
+title_align center
+
+# class         		border  backgr. text    indicator child_border  
+client.focused_inactive #333333 #333333 #999999 #333333 #333333                                                                        
+client.unfocused        #333333 #333333 #999999 #333333 #333333                                                                            
+client.focused          #333333 #333333 #ffffff #333333 #333333  
+
+# Fond d'écrans
+output "*" bg  $(find /home/jeremy/.config/sway/bg/ -type f | shuf -n 1) fill
+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+
+# Lance un terminal
+bindsym $mod+Return exec alacritty
+
+# Ouvrir les fichier de configuration avec geany
+bindsym $mod+c exec geany ~/.config/sway/config ~/.config/waybar/config ~/.config/waybar/style.css  ~/.config/rofi/default.rasi ~/.config/rofi/menu.rasi ~/.config/dunst/dunstrc ~/.config/alacritty/alacritty.yml ~/.vimrc
+
+# Ferme le fenêtre
+bindsym $mod+Q kill
+
+# Lancement des menus
+bindsym $mod+a exec --no-startup-id "rofi -show drun -theme default -run-shell-command '{terminal} -e {cmd}'"
+bindsym $mod+d exec --no-startup-id "rofi -show run -theme default -run-shell-command '{terminal} -e {cmd}'"
+
+# Change le focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Déplacement de la fenêtre
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Mode horizontal
+bindsym $mod+h split h
+
+# Mode vertical
+bindsym $mod+v split v
+
+# Mode plein écran
+bindsym $mod+f fullscreen toggle
+
+# Change le layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# Activation du  tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Déplacement des workspace sur les autres écrans
+bindsym $alt+Left move workspace to output left
+bindsym $alt+Down move workspace to output down
+bindsym $alt+Up move workspace to output up
+bindsym $alt+Right move workspace to output right
+
+# Définition des workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
+# Changement de workspace
+bindsym $mod+ampersand workspace $ws1
+bindsym $mod+eacute workspace $ws2
+bindsym $mod+quotedbl workspace $ws3
+bindsym $mod+apostrophe workspace $ws4
+bindsym $mod+parenleft workspace $ws5
+bindsym $mod+minus workspace $ws6
+bindsym $mod+egrave workspace $ws7
+bindsym $mod+underscore workspace $ws8
+bindsym $mod+ccedilla workspace $ws9
+bindsym $mod+agrave workspace $ws10
+
+# Change le focus des fenêtre du workspace
+bindsym $mod+Shift+ampersand move container to workspace $ws1
+bindsym $mod+Shift+eacute move container to workspace $ws2
+bindsym $mod+Shift+quotedbl move container to workspace $ws3
+bindsym $mod+Shift+apostrophe move container to workspace $ws4
+bindsym $mod+Shift+parenleft move container to workspace $ws5
+bindsym $mod+Shift+minus move container to workspace $ws6
+bindsym $mod+Shift+egrave move container to workspace $ws7
+bindsym $mod+Shift+underscore move container to workspace $ws8
+bindsym $mod+Shift+ccedilla move container to workspace $ws9
+bindsym $mod+Shift+agrave move container to workspace $ws10
+
+
+# Rechargement de la configuration de sway
+bindsym $mod+Shift+c reload
+
+# Quitter sway
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Oui, quitter sway' 'swaymsg exit'
+
+# Mode resize
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Activation de mode resize
+bindsym $mod+r mode "resize"
+
+# Gaps
+for_window [class=".*"] border pixel 0
+gaps inner 10
+gaps outer 6	
+
+# Clavier
+input * {
+    xkb_layout "fr"
+    xkb_variant "colemak,,typewriter"
+    xkb_options "grp:win_space_toggle"
+}
+
+input * xkb_numlock enable
+
+# Bar
+bar {
+    swaybar_command waybar
+}
+
+
+# Assignation des workspaces
+assign [class="Brave"] workspace $ws1
+exec --no-startup-id brave
+
+assign [class="Code"] workspace $ws3
+assign [class="rstudio-bin"] workspace $ws3
+
+assign [class="Virt-manager"]  workspace $ws4
+assign [class="Vmware"] workspace $ws4
+assign [class="GNS3"] workspace $ws4
+
+assign [class="steam"] workspace $ws8
+
+exec --no-startup-id discord
+for_window [class="discord"] move window to workspace 9
+
+
+# Police
+font "Terminus (TTF)" 11
+
+# Configuration de GTK3
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Materia-dark'
+    gsettings set org.gnome.desktop.interface icon-theme 'Flat-Remix-Blue-Dark'
+    gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+    gsettings set org.gnome.desktop.interface font-name 'Terminus (TTF) 11'
+}
+
+include /etc/sway/config.d/*

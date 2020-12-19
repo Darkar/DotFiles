@@ -1,0 +1,100 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "pulseaudio", "network", "custom/update", "custom/mail", "cpu", "memory", "battery", "custom/quit"],
+    "height": 32,
+	"sway/workspaces": {
+	"disable-scroll": true,
+	"all-outputs": true,
+	"numeric-first": true,
+	"format": "<span font='13'>{icon}</span>",
+		"format-icons": {
+		  "1": "",
+		  "2": "",
+		  "3": "",
+		  "4": "",
+		  "5": "",
+		  "6": "",
+		  "7": "",
+		  "8": "",
+		  "9": "",
+		  "10": ""
+		}
+	},
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+		"format": " {:%H:%M}",
+        "timezone": "Europe/Paris",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%H:%M | %d/%m/%Y}"
+    },
+    "cpu": {
+        "format": " {usage}%"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (Pas d'IP) ",
+        "format-disconnected": "⚠ Déconnecté",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": " Mute",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "amixer set Master toggle; pkill -x -RTMIN+11 waybar",
+        "on-click-right": "pavucontrol",
+    },
+    "custom/update": {
+	"format": "  {} ", 
+	"tooltip": false,
+	"interval": 30,
+	"exec": "checkupdates+aur | wc -l"
+    },
+    "custom/mail": {
+	"format": "  {} ", 
+	"tooltip": false,
+	"interval": 30,
+	"exec": "python -B ~/.config/waybar/modules/mail.py"
+    },
+    "custom/quit": {
+	"format": "    ", 
+	"tooltip": false,
+	"on-click": "~/.config/waybar/modules/power.sh"
+    }
+}
