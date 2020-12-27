@@ -20,15 +20,18 @@ client.unfocused        #333333 #333333 #999999 #333333 #333333
 client.focused          #333333 #333333 #ffffff #333333 #333333  
 
 # Fond d'écrans
-output "*" bg  $(find /home/jeremy/.config/sway/bg/ -type f | shuf -n 1) fill
+output "*" bg $(find /home/jeremy/.config/sway/bg/ -type f | shuf -n 1) fill
 
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 
 # Lance un terminal
 bindsym $mod+Return exec alacritty
 
+# Verrouille l'écran
+bindsym $mod+l exec $HOME/Documents/Configuration/sway/swaylock.sh
+
 # Ouvrir les fichier de configuration avec geany
-bindsym $mod+c exec geany ~/.config/sway/config ~/.config/waybar/config ~/.config/waybar/style.css  ~/.config/rofi/default.rasi ~/.config/rofi/menu.rasi ~/.config/dunst/dunstrc ~/.config/alacritty/alacritty.yml ~/.vimrc
+bindsym $mod+c exec geany ~/.config/sway/config ~/.config/waybar/config ~/.config/waybar/style.css  ~/.config/rofi/default.rasi ~/.config/rofi/menu.rasi ~/.config/dunst/dunstrc ~/.config/alacritty/alacritty.yml ~/.vimrc ~/.config/sway/swaylock.sh
 
 # Ferme le fenêtre
 bindsym $mod+Q kill

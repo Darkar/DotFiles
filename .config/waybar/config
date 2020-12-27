@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "network", "custom/update", "custom/mail", "cpu", "memory", "battery", "custom/quit"],
+    "modules-right": ["tray", "pulseaudio", "network", "custom/vpn", "custom/update", "custom/mail", "cpu", "memory", "battery", "custom/quit"],
     "height": 32,
 	"sway/workspaces": {
 	"disable-scroll": true,
@@ -81,20 +81,27 @@
         "on-click-right": "pavucontrol",
     },
     "custom/update": {
-	"format": "  {} ", 
-	"tooltip": false,
-	"interval": 30,
-	"exec": "checkupdates+aur | wc -l"
+		"format": " {}", 
+		"tooltip": false,
+		"interval": 30,
+		"exec": "checkupdates+aur | wc -l"
     },
+	"custom/vpn": {
+		"format": "{}",
+		"tooltip-format": "{icon}",
+		"exec" : "if [ -d '/proc/sys/net/ipv4/conf/tun0' ]; then echo ' ON' ;else echo '  OFF' ;fi",
+		"on-click": "if [ -d '/proc/sys/net/ipv4/conf/tun0' ]; then gksu killall openvpn ;else gksu openvpn $HOME/Documents/VPN/dedie.ovpn ;fi",
+		"interval": 5
+	},
     "custom/mail": {
-	"format": "  {} ", 
-	"tooltip": false,
-	"interval": 30,
-	"exec": "python -B ~/.config/waybar/modules/mail.py"
+		"format": " {}", 
+		"tooltip": false,
+		"interval": 30,
+		"exec": "python -B $HOME/.config/waybar/modules/mail.py"
     },
     "custom/quit": {
-	"format": "    ", 
-	"tooltip": false,
-	"on-click": "~/.config/waybar/modules/power.sh"
+		"format": "    ", 
+		"tooltip": false,
+		"on-click": "$HOME/.config/waybar/modules/power.sh"
     }
 }

@@ -36,7 +36,7 @@ window#waybar {
     border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode, #custom-quit{
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-update, #custom-mail, #custom-vpn, #tray, #mode, #custom-quit{
     padding: 0 10px;
     margin: 0 2px;
     font-size: 15px;
@@ -45,9 +45,6 @@ window#waybar {
 
 #clock {
     font-weight: bold;
-}
-
-#battery {
 }
 
 #battery icon {
@@ -66,28 +63,7 @@ window#waybar {
     animation-direction: alternate;
 }
 
-#cpu {
-}
-
-#memory {
-}
-
-#network {
-}
-
 #network.disconnected {
     background: #f53c3c;
 }
 
-#pulseaudio {
-}
-
-#pulseaudio.muted {
-}
-
-#tray {
-}
-
-#custom-update {
-
-}
