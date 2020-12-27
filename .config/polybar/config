@@ -53,7 +53,7 @@ module-margin-right = 3
 
 modules-left = i3
 modules-center = date
-modules-right = pulseaudio cpu memory mail checkupdate network-wired network-wireless power
+modules-right = pulseaudio cpu memory mail checkupdate vpn network-wired network-wireless power
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -118,7 +118,6 @@ format-prefix = " "
 exec = ruby ~/.config/polybar/modules/mail.rb
 tail = true
 label = %output%
-;format-underline = #57F2AA
 click-left = brave webmail.magnan.one
 
 [module/checkupdate]
@@ -154,12 +153,9 @@ interval = 3.0
 
 label-connected = Connexion filaire [%local_ip%]
 label-connected-foreground = #eefafafa
-;label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
-;format-connected-underline = #B16761
 
 format-connected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<ramp-signal><label-connected>%{A} 
-;format-disconnected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<label-disconnected>%{A}
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
 ramp-signal-0 = " "
@@ -179,10 +175,8 @@ label-connected = %essid% [%local_ip%]
 label-connected-foreground = #eefafafa
 ;label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
-;format-connected-underline = #B16761
 
 format-connected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<ramp-signal> <label-connected>%{A} 
-;format-disconnected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<label-disconnected>%{A}
 ramp-signal-foreground = ${colors.foreground-alt}
 ; Worst
 ramp-signal-0 = " "
@@ -193,6 +187,12 @@ ramp-signal-4 = " "
 ; Best
 ramp-signal-5 = " "
 
+[module/vpn]
+type = custom/script
+interval = 3.0
+
+exec = if [ -d "/proc/sys/net/ipv4/conf/tun0" ]; then echo " VPN [$(ifconfig tun0 | awk '/inet / {print $2}')]" ;else echo " VPN OFF" ;fi
+click-left = "if [ -d '/proc/sys/net/ipv4/conf/tun0' ]; then gksu killall openvpn ;else gksu openvpn $HOME/Documents/VPN/dedie.ovpn ;fi"
 
 [module/date]
 type = internal/date
