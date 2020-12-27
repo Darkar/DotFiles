@@ -9,16 +9,16 @@ set $alt Mod1
 floating_modifier $mod
 
 # Verrouille l'écran
-bindsym $mod+l exec dm-tool switch-to-greeter
+bindsym $mod+l exec $HOME/.config/i3/i3lock.sh
 
 # Lance un terminal
 bindsym $mod+Return exec alacritty
 
 # Ouvrir les fichier de configuration avec geany
-bindsym $mod+c exec geany ~/.config/i3/config ~/.config/polybar/config ~/.config/rofi/default.rasi ~/.config/rofi/menu.rasi  ~/.config/dunst/dunstrc  ~/.config/alacritty/alacritty.yml ~/.vimrc
+bindsym $mod+c exec geany $HOME/.config/i3/config $HOME/.config/polybar/config $HOME/.config/rofi/default.rasi $HOME/.config/rofi/menu.rasi  $HOME/.config/dunst/dunstrc  $HOME/.config/alacritty/alacritty.yml $HOME/.vimrc $HOME/.config/i3/i3lock.sh
 
 # Screenshot
-bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e 'mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`' # All screens
+bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e 'mkdir -p $HOME/Images/Screenshots && mv $f $HOME/Images/Screenshots && xclip -selection clipboard -t image/png -i $HOME/Images/Screenshots/`ls -1 -t $HOME/Images/Screenshots | head -1`' # All screens
 
 # Ferme le fenêtre
 bindsym $mod+Q kill
@@ -140,7 +140,7 @@ gaps outer 6
 #for_window [class=".*"] border normal 0
 
 # Suppression de la bordure et de la barre de titre
-for_window [class=".*"] border pixel 0
+#for_window [class=".*"] border pixel 0
 
 # Titre des fenêtre
 #for_window [class=".*"] title_format "%title"
@@ -181,6 +181,10 @@ for_window [instance="dropdown"] move scratchpad
 for_window [instance="dropdown"] border pixel 1
 for_window [instance="dropdown"] resize set 1225 800
 
+exec_always --no-startup-id gsettings set org.gnome.desktop.interface gtk-theme 'Materia-dark'
+exec_always --no-startup-id gsettings set org.gnome.desktop.interface icon-theme 'Flat-Remix-Blue-Dark'
+exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+exec_always --no-startup-id gsettings set org.gnome.desktop.interface font-name 'Terminus (TTF) 11'
 
 # AUTORUN
 exec --no-startup-id dunst 
