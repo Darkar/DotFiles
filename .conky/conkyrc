@@ -71,8 +71,6 @@ ${color lightblue} IP Publique: $color${exec curl https://ipinfo.io/ip}
 ${color lightblue} Téléversement: $color ${upspeed enp4s0f1}
 ${color lightblue} Téléchargement: $color ${downspeed enp4s0f1}${endif}
 
-Hyperviseur $hr
-${texeci 60 /home/jeremy/.conky/modules/virt.py}
 Mails $hr
-${texeci 120 ruby /home/jeremy/.conky/modules/mail.rb}
+${texeci 120 pthon /home/jeremy/.conky/modules/mail.py}
 
