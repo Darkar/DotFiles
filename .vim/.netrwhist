@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/etc/nginx/sites-enabled'
-let g:netrw_dirhist_2='/home/jeremy/.zsh'
-let g:netrw_dirhist_1='/home/jeremy/.docker'

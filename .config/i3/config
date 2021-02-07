@@ -5,6 +5,8 @@
 set $mod Mod4
 set $alt Mod1
 
+set $TERMINAL alacritty
+
 # Déplacement d'une fenêtre en modse floating
 floating_modifier $mod
 
@@ -15,13 +17,13 @@ floating_modifier $mod
 bindsym $mod+l exec $HOME/.config/i3/i3lock.sh
 
 # Lance un terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $TERMINAL
 
 # Ouvrir les fichier de configuration avec geany
-bindsym $mod+c exec geany $HOME/.config/i3/config $HOME/.config/polybar/config $HOME/.config/rofi/default.rasi $HOME/.config/rofi/menu.rasi  $HOME/.config/dunst/dunstrc  $HOME/.config/alacritty/alacritty.yml $HOME/.vimrc $HOME/.config/i3/i3lock.sh
+bindsym $mod+c exec alacritty -e nvim $HOME/.config/i3/config $HOME/.config/polybar/config $HOME/.config/rofi/default.rasi $HOME/.config/rofi/menu.rasi $HOME/.config/dunst/dunstrc $HOME/.config/alacritty/alacritty.yml $HOME/.config/nvim/init.vim $HOME/.config/i3/i3lock.sh
 
 # Screenshot
-bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e 'mkdir -p $HOME/Images/Screenshots && mv $f $HOME/Images/Screenshots && xclip -selection clipboard -t image/png -i $HOME/Images/Screenshots/`ls -1 -t $HOME/Images/Screenshots | head -1`' # All screens
+bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e "mkdir -p $HOME/Images/Screenshots && mv $f $HOME/Images/Screenshots && xclip -selection clipboard -t image/png -i $HOME/Images/Screenshots/`ls -1 -t $HOME/Images/Screenshots | head -1`" # All screens
 
 # Ferme le fenêtre
 bindsym $mod+Q kill
@@ -143,7 +145,7 @@ gaps inner 10
 gaps outer 6
 
 # Suppression de la bordure
-#for_window [class=".*"] border normal 0
+for_window [class=".*"] border normal 0
 
 # Suppression de la bordure et de la barre de titre
 for_window [class="Brave"] border pixel 0
@@ -155,9 +157,9 @@ for_window [class="Brave"] border pixel 0
 title_align center
 
 # class         		border  backgr. text    indicator child_border  
-client.focused_inactive #333333 #333333 #999999 #333333 #333333                                                                        
-client.unfocused        #333333 #333333 #999999 #333333 #333333                                                                            
-client.focused          #333333 #333333 #ffffff #333333 #333333  
+client.focused_inactive #1E1E1E #1E1E1E #999999 #1E1E1E #1E1E1E                                                                        
+client.unfocused        #1E1E1E #1E1E1E #999999 #1E1E1E #1E1E1E                                                                            
+client.focused          #1E1E1E #1E1E1E #ffffff #1E1E1E #1E1E1E  
 
 # Assignation des workspaces
 assign [class="Brave"] $ws1
@@ -193,7 +195,7 @@ for_window [instance="shortkey"] resize set 891 900
 exec --no-startup-id dunst 
 exec --no-startup-id feh --randomize --bg-fill /home/jeremy/.config/i3/bg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec_always --no-startup-id xrandr --output HDMI2 --auto --primary --right-of eDP1
 exec --no-startup-id alacritty --config-file=$HOME/.config/alacritty/dropdown.yml
 exec --no-startup-id xkb-switch --i3

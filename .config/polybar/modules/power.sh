@@ -16,7 +16,7 @@ chosen=$(echo -e "[Annuler]\nDéconnexion\nEteindre\nRedémarrer" | rofi -dmenu 
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
 if [[ $chosen = "Déconnexion" ]]; then
-	jwm -exit
+	i3-msg exit
 elif [[ $chosen = "Eteindre" ]]; then
 	systemctl poweroff
 elif [[ $chosen = "Redémarrer" ]]; then

@@ -5,7 +5,7 @@
     indicate_hidden = yes
     shrink = no
     transparency = 0
-    notification_height = 1
+    notification_height = 0
     separator_height = 2
     padding = 5
     horizontal_padding = 10
@@ -27,7 +27,7 @@
     hide_duplicate_count = false
     show_indicators = yes
     icon_position = left
-    max_icon_size = 16
+    max_icon_size = 32
     icon_path = /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/:/usr/share/icons/Papirus/16x16/apps/
     sticky_history = yes
     history_length = 20
@@ -35,7 +35,7 @@
     startup_notification = false
     verbosity = mesg
     browser = /usr/bin/brave
-    corner_radius = 2
+    corner_radius = 0
     force_xinerama = false
     mouse_left_click = close_current
     mouse_middle_click = do_action

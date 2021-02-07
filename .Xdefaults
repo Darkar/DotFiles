@@ -40,10 +40,10 @@
 ! FONTS
 ! -----
 
-URxvt*font: xft:Source Code Pro:regular:size=10
-URxvt*boldFont: xft:Source Code Pro:bold:size=10
-URxvt*italicFont: xft:Source Code Pro:italic:size=10
-URxvt*boldItalicFont: xft:Source Code Pro:bold italic:size=10
+URxvt*font: xft:Terminus (TTF):regular:size=12
+URxvt*boldFont: xft:Terminus (TTF):bold:size=12
+URxvt*italicFont: xft:Terminus (TTF):italic:size=12
+URxvt*boldItalicFont: xft:Terminus (TTF):bold italic:size=12
 
 ! XFT FONT CONFIG
 ! ---------------

@@ -6,7 +6,7 @@ neofetch
 # Alias général
 alias ls='ls --color=auto'
 alias ll='ls -ll'
-#alias clear='clear && neofetch'
+alias vim='nvim'
 alias magnan-server='sudo openvpn ~/Documents/VPN/dedie.ovpn'
 
 # Export
@@ -27,6 +27,7 @@ compinit
 # ZSH Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#444"
 
 # Historique
 HISTFILE=~/.zsh_history
