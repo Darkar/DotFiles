@@ -2,6 +2,8 @@ call plug#begin()
 Plug 'preservim/nerdcommenter'
 Plug 'junegunn/fzf'
 Plug 'preservim/nerdtree'
+Plug 'chrisbra/colorizer'
+Plug 'vim-scripts/delimitMate.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -55,12 +57,23 @@ set mouse=a
 " Airline
 let g:airline_theme='jellybeans'
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
+
+" NERDCommenter
+let g:NERDDefaultAlign = 'start'
+
+" COC
+let g:python3_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/bin/python2'
+
+" FZF
+let g:fzf_preview_window = 'right:50%'
+let g:fzf_layout = { 'window': {'width': 0.9, 'height': 0.6 }}
 
 " Mapping 
 map <F2> :NERDTreeToggle<CR>
 map <F3> <Plug>NERDCommenterToggle('n', 'Toggle')<Cr>
 map <F5> :!./%<CR>
+map <F9> :FZF<CR>
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 inoremap <S-Tab> <C-D>

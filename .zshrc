@@ -1,41 +1,50 @@
 #!/usr/bin/env zsh
 
-# Application
-neofetch
-
 # Alias général
 alias ls='ls --color=auto'
 alias ll='ls -ll'
 alias vim='nvim'
 alias magnan-server='sudo openvpn ~/Documents/VPN/dedie.ovpn'
 
-# Export
-#export PATH=/opt/anaconda3/bin:$PATH.
-export EDITOR=/usr/bin/vim
+# Autoload
+autoload -U compinit; compinit
+autoload colors; colors
+autoload -Uz vcs_info
 
-# Correction des commandes
+# Options
 setopt correctall
 setopt completealiases 
 setopt auto_cd
 setopt correct                 
 setopt list_ambiguous 
+setopt prompt_subst
 
-# Complétion
-autoload -U compinit
-compinit
+# Application
+neofetch
 
-# ZSH Plugins
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#444"
-
-# Historique
+#Historique
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
+
+#Git Config
+precmd() { vcs_info }
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+zstyle ':vcs_info:git:*' formats       '[%b%u%c]'
+zstyle ':vcs_info:git:*' actionformats '[%b|%a%u%c]'
+
+#Zsh Plugin
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757171'
+
+# Export
+export EDITOR=/usr/bin/nvim
 export HISTFILE SAVEHIST
 
-# Prompt
-autoload colors; colors
-export PS1="%B%{$fg[blue]%}%n%{$reset_color%}%b@%B%{$fg[red]%}%m%b%{$reset_color%} %B%{$fg[yellow]%}%T%{$reset_color%} %B%{$fg[green]%}$(/bin/ls -1 | /usr/bin/wc -l | /bin/sed 's: ::g') fichiers%{$reset_color%} %B%{$fg[cyan]%}[%~%B]%b 
+#Prompt
+RPROMPT=\$vcs_info_msg_0_
+export PS1="%B%{$fg[blue]%}%n%{$reset_color%}%b@%B%{$fg[red]%}%m%b%{$reset_color%} %B%{$fg[yellow]%}%T%{$reset_color%} %B%{$fg[green]%}$(/bin/ls | /usr/bin/wc -l) fichiers%{$reset_color%} %B%{$fg[cyan]%}[%~%B]%b 
 >"

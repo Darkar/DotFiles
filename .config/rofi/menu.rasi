@@ -8,7 +8,7 @@ configuration {
   background-color: #111111;
   text-color:       #FFFFFF;
   selbg:            #FFFFFF;
-  actbg:            #111111;
+  actbg:            #222222;
   urgbg:            #BF616A;
   winbg:            @text-color;
 

@@ -275,6 +275,7 @@ poll-interval = 5
 
 [module/pulseaudio]
 type = internal/pulseaudio
+sink = bluez_sink.41_42_96_CF_6C_A8.a2dp_sink
 
 format-volume = <label-volume> <bar-volume>
 label-volume =  %percentage%%
@@ -299,6 +300,8 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+
+click-right = pavucontrol
 
 [module/power]
 type = custom/script
