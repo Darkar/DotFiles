@@ -7,9 +7,9 @@ DotFiles
  - Autorandr : Configuration de l'affichage
  - Rofi: Lanceur d'applications
  - Dunst : Afficheur de notification
+ - nvim : Editeur de texte/IDE
  - .Xdefaults : Fichier de configuration d'URxvt
  - .face : Image de l'avatar 
  - .zshrc : Fichier de configuration de ZSH
  - .vimrc : Fichier de configuration de vim 
- - .vim : Dossier des themes de vim 
  - .xinitrc : Fichier de démmarage de la session
