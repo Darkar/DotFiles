@@ -20,7 +20,8 @@ setopt list_ambiguous
 setopt prompt_subst
 
 # Application
-neofetch
+export PF_INFO="ascii os host kernel uptime pkgs shell memory"
+pfetch
 
 #Historique
 HISTFILE=~/.zsh_history

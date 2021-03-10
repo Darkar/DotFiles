@@ -2,11 +2,13 @@
 
 # Require rsync
 
-rsync -v -r --delete-after ~/.conky/ .conky/ --exclude "cred_mail.py" --exclude "__pycache__"
-rsync -v -r --delete-after ~/.config/i3/ .config/i3/
-rsync -v -r --delete-after ~/.config/polybar/ .config/polybar/ --exclude "cred_mail.py" --exclude "__pycache__"
-rsync -v -r --delete-after ~/.config/picom/ .config/picom/
-rsync -v -r --delete-after ~/.config/autorandr/ .config/autorandr/
+OPTION="-v -r --delete-after"
+
+rsync $OPTION ~/.conky/ .conky/ --exclude "cred_mail.py" --exclude "__pycache__"
+rsync $OPTION ~/.config/i3/ .config/i3/
+rsync $OPTION ~/.config/polybar/ .config/polybar/ --exclude "cred_mail.py" --exclude "__pycache__"
+rsync $OPTION  ~/.config/picom/ .config/picom/
+rsync  ~/.config/autorandr/ .config/autorandr/
 rsync -v -r --delete-after ~/.config/rofi/ .config/rofi/
 rsync -v -r --delete-after ~/.config/neofetch/ .config/neofetch/
 rsync -v -r --delete-after ~/.config/dunst/ .config/dunst/

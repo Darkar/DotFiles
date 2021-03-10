@@ -20,10 +20,10 @@ bindsym $mod+l exec $HOME/.config/i3/i3lock.sh
 bindsym $mod+Return exec $TERMINAL
 
 # Ouvrir les fichier de configuration avec geany
-bindsym $mod+c exec alacritty -e nvim $HOME/.config/i3/config $HOME/.config/polybar/config $HOME/.config/rofi/default.rasi $HOME/.config/rofi/menu.rasi $HOME/.config/dunst/dunstrc $HOME/.config/alacritty/alacritty.yml $HOME/.config/nvim/init.vim $HOME/.config/i3/i3lock.sh
+bindsym $mod+c exec alacritty -e nvim $HOME/.config/i3/config $HOME/.config/polybar/config $HOME/.config/rofi/default.rasi $HOME/.config/rofi/menu.rasi $HOME/.config/dunst/dunstrc $HOME/.config/alacritty/alacritty.yml $HOME/.config/nvim/init.vim $HOME/.config/i3/i3lock.sh $HOME/.zshrc
 
 # Screenshot
-bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e "mkdir -p $HOME/Images/Screenshots && mv $f $HOME/Images/Screenshots && xclip -selection clipboard -t image/png -i $HOME/Images/Screenshots/`ls -1 -t $HOME/Images/Screenshots | head -1`" # All screens
+bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e "mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`" # All screens
 
 # Ferme le fenêtre
 bindsym $mod+Q kill
@@ -168,13 +168,7 @@ exec --no-startup-id brave
 assign [class="Code"] $ws3
 assign [class="rstudio-bin"] $ws3
 
-for_window [class="Virt-manager"] move to workspace $ws4
 for_window [class="vmware"] move to workspace $ws4
-for_window [class="GNS3"] move to workspace $ws4
-
-assign [class="battle.net.exe"] $ws8
-
-assign [class="steam"] $ws9
 
 assign [class="discord"] $ws9
 exec --no-startup-id discord
@@ -193,7 +187,7 @@ for_window [instance="shortkey"] resize set 891 900
 	
 # AUTORUN
 exec --no-startup-id dunst 
-exec --no-startup-id feh --randomize --bg-fill /home/jeremy/.config/i3/bg
+exec --no-startup-id feh --randomize --bg-fill "$HOME/Images/Fond d'écrans/"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 exec_always --no-startup-id xrandr --output HDMI2 --auto --primary --right-of eDP1

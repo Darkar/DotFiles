@@ -10,12 +10,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
-"set t_Co=256
+set t_Co=256
 colorscheme jellybeans
 set clipboard+=unnamedplus
 filetype on          " Détection du type de fichier 
 syntax on            " Coloration syntaxique
 set background=dark  " Adapte les couleurs pour un fond noir (idéeal dans PuTTY)
+set nowrap	     " Coupe les lignes à la fin de la fenêtre
 set linebreak        " Coupe les lignes au dernier mot et pas au caractère (requier Wrap lines, actif par défaut)
 set visualbell       " Utilisation du clignotement à la place du "beep"
 set showmatch        " Surligne le mots recherchés dans le texte
@@ -65,17 +66,19 @@ let g:NERDDefaultAlign = 'start'
 let g:python3_host_prog = '/usr/bin/python'
 let g:python_host_prog = '/usr/bin/python2'
 
-" FZF
-let g:fzf_preview_window = 'right:50%'
-let g:fzf_layout = { 'window': {'width': 0.9, 'height': 0.6 }}
+" Transparence
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Mapping 
 map <F2> :NERDTreeToggle<CR>
 map <F3> <Plug>NERDCommenterToggle('n', 'Toggle')<Cr>
 map <F5> :!./%<CR>
-map <F9> :FZF<CR>
+map <F9> :FZF --preview cat\ {}<CR>
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
 inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+
+

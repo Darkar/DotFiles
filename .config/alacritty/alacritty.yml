@@ -92,4 +92,4 @@ key_bindings:
   - { key: V,        mods: Control|Alt, action: Paste                  }
   - { key: C,        mods: Control|Alt, action: Copy                   }
     
-background_opacity: 1
+background_opacity: 0.9

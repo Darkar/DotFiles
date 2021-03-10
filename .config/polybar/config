@@ -275,7 +275,6 @@ poll-interval = 5
 
 [module/pulseaudio]
 type = internal/pulseaudio
-sink = bluez_sink.41_42_96_CF_6C_A8.a2dp_sink
 
 format-volume = <label-volume> <bar-volume>
 label-volume =  %percentage%%
