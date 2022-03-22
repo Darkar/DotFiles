@@ -1,0 +1,4 @@
+# Keyboard
+
+input * xkb_layout "fr"
+input * xkb_numlock enabled

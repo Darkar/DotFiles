@@ -1,0 +1,34 @@
+# Déplacement d'une fenêtre en mode floating
+floating_modifier $mod
+
+# Gaps
+gaps inner 6
+gaps outer 6
+# smart_gaps on
+smart_borders on
+
+# Suppression de la bordure
+for_window [class=".*"] border normal 0
+
+# Suppression de la bordure et de la barre de titre
+for_window [class="Brave"] border pixel 0
+for_window [class="Chromium"] border pixel 0
+for_window [class="obsidian"] border  pixel 0
+
+# Dropdown terminal
+for_window [title="Dropdown Terminal"] move container to scratchpad  
+
+# Alignement au centre du titre des fenêtre
+title_align center
+
+# class         		border  backgr. text    indicator child_border  
+client.focused_inactive #1E1E1E #1E1E1E #999999 #1E1E1E #1E1E1E                                                                        
+client.unfocused        #1E1E1E #1E1E1E #999999 #1E1E1E #1E1E1E                                                                            
+client.focused          #1E1E1E #1E1E1E #ffffff #1E1E1E #1E1E1E  
+
+
+# Bar
+bar { 
+     swaybar_command waybar
+}
+

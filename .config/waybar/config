@@ -1,0 +1,109 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "cpu", "memory", "battery", "custom/powermenu"],
+    "height": 32,
+	"sway/workspaces": {
+	"disable-scroll": true,
+	"all-outputs": false,
+	"numeric-first": true,
+	"format": "<span font='9'> {icon} </span>",
+		"format-icons": {
+		  "1": "I",
+		  "2": "II",
+		  "3": "III",
+		  "4": "IV",
+		  "5": "V",
+		  "6": "VI",
+		  "7": "VII",
+		  "8": "IIX",
+		  "9": "IX",
+		  "10": "X"
+		}
+	},
+    "tray": {
+        "icon-size": 21,
+        "spacing": 16
+    },
+    "clock": {
+		"format": " {:%H:%M}",
+        "timezone": "Europe/Paris",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%H:%M | %d/%m/%Y}"
+    },
+    "cpu": {
+        "format": " {usage}%"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+     "network#wireless": {
+        "interface": "wlp0*",
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-disconnected": " Déconnecté",
+        "format-alt": " {ipaddr}/{cidr}",
+        "on-click-right": "$HOME/.config/waybar/scripts/netctl.sh",
+        "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}" 
+    },  
+     "network#wired": {
+        "interface": "enp*",
+        "format-ethernet": " Filaire",
+        "format-alt": " {ipaddr}/{cidr}",
+        "format-linked": " {ifname} (Pas d'IP)",
+        "format-disconnected": "",
+        "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}" 
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": " Mute",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "amixer set Master toggle; pkill -x -RTMIN+11 waybar",
+        "on-click-right": "pavucontrol",
+    },
+    "custom/update": {
+		"format": " {}", 
+		"tooltip": false,
+		"interval": 600,
+		"exec": "checkupdates+aur | wc -l"
+    },
+	"custom/vpn": {
+		"format": "{icon} {}",
+        "return-type": "json",
+		"exec": "$HOME/.config/waybar/scripts/vpn.sh",
+        "on-click-right": "$HOME/.config/waybar/scripts/vpn.sh vpn",
+		"interval": 5,
+        "format-icons": ["",""]
+	},
+    "custom/powermenu": {
+		"format": "    ", 
+		"tooltip": false,
+		"on-click": "$HOME/.config/waybar/scripts/powermenu.sh"
+    }
+}

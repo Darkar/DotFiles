@@ -1,0 +1,7 @@
+hide_search=true
+hide_scroll=true
+show=dmenu
+columns=4
+height=55
+prompt=disable
+

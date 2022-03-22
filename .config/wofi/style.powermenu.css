@@ -1,0 +1,44 @@
+*{
+    font-family: Cantarell;
+    font-size: 21px;
+}
+
+window {
+    margin: 0px;
+    border: 1px solid #222;
+    background-color: #222;
+}
+    
+#input {
+    margin: -20px;
+    border: none;
+    color: #f8f8f2;
+    background-color: #222;
+}
+    
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: #222;
+}
+
+#outer-box {
+    margin: 5px;
+    border: none;
+    background-color: #222;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+    
+#text {
+    margin: 5px;
+    border: none;
+    color: #f8f8f2;
+} 
+    
+#entry:selected {
+    background-color: #444;
+}

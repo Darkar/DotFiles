@@ -1,0 +1,6 @@
+# AUTORUN
+
+exec --no-startup-id brave
+exec --no-startup-id discord
+exec --no-startup-id mako
+exec --no-startup-id alacritty --title "Dropdown Terminal" --config-file $HOME/.config/alacritty/dropdown.yml

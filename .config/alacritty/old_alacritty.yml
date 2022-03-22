@@ -1,0 +1,95 @@
+env:
+
+  TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: "1.0"  
+
+window:
+
+  padding:
+    x: 6
+    y: 6
+
+  # Window title
+  title: Alacritty
+
+  # Window class (Linux/BSD only):
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
+
+
+# Font configuration
+font:
+  # Normal (roman) font face
+  normal:
+    family: Terminus (TTF)
+    style: Bold
+
+  # Bold font face
+  bold:
+    family: Terminus (TTF)
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: Terminus (TTF)
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: Terminus (TTF)
+    style: Bold Italic
+
+  # Point size
+  size: 11 
+
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  offset:
+    x: 1
+    y: 1
+
+
+# VSCode's integrated terminal default colors
+# Primary and dimmed colors needed
+
+colors:
+  # Default colors
+  primary:
+    background: '#121212' 
+    foreground: '#FFFFFF'
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#CD3131'
+    green:   '#0DBC79'
+    yellow:  '#E5E510'
+    blue:    '#2472C8'
+    magenta: '#BC3FBC'
+    cyan:    '#11A8CD'
+    white:   '#E5E5E5'
+
+  # Bright colors
+  bright:
+    black:   '#000000'
+    red:     '#CD3131'
+    green:   '#0DBC79'
+    yellow:  '#E5E510'
+    blue:    '#2472C8'
+    magenta: '#BC3FBC'
+    cyan:    '#11A8CD'
+    white:   '#E5E5E5'
+
+key_bindings:
+  - { key: V,        mods: Control|Alt, action: Paste                  }
+  - { key: C,        mods: Control|Alt, action: Copy                   }
+    
+background_opacity: 0.9
