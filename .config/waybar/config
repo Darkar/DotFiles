@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "cpu", "memory", "battery", "custom/powermenu"],
+    "modules-right": ["tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "battery", "custom/powermenu"],
     "height": 32,
 	"sway/workspaces": {
 	"disable-scroll": true,
@@ -28,7 +28,7 @@
         "spacing": 16
     },
     "clock": {
-		"format": " {:%H:%M}",
+	"format": " {:%H:%M}",
         "timezone": "Europe/Paris",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": " {:%H:%M | %d/%m/%Y}"

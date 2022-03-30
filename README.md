@@ -3,12 +3,19 @@
 ## Description
 
 - Operating system: ArchLinux
-- windowing system: Wayland
+- Windowing system: Wayland
 - Window manager: Sway
 - Wayland bar: Waybar
 - Notifications: Mako
 - Terminal: Alacritty
 - Application launcher: Wofi
+
+## Required
+
+### ZSH
+
+- zsh-autosuggestions 
+- zsh-syntax-highlighting
 
 ## Laptop
 

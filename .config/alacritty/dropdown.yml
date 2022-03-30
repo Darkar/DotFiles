@@ -5,8 +5,8 @@ env:
 
 window:
   padding:
-    x: 6
-    y: 6
+    x: 8
+    y: 5
 
   class:
     # Application instance name

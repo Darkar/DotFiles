@@ -4,12 +4,12 @@
 alias ls='ls --color=auto'
 alias ll='ls -ll'
 alias vim='nvim'
-alias magnan-server='sudo openvpn ~/Documents/VPN/dedie.ovpn'
 
 # Autoload
 autoload -U compinit; compinit
 autoload colors; colors
 autoload -Uz vcs_info
+autoload -U promptinit; promptinit
 
 # Options
 setopt correctall
@@ -46,6 +46,6 @@ export EDITOR=/usr/bin/nvim
 export HISTFILE SAVEHIST
 
 #Prompt
-RPROMPT=\$vcs_info_msg_0_
-export PS1="%B%{$fg[blue]%}%n%{$reset_color%}%b@%B%{$fg[red]%}%m%b%{$reset_color%} %B%{$fg[yellow]%}%T%{$reset_color%} %B%{$fg[green]%}$(/bin/ls | /usr/bin/wc -l) fichiers%{$reset_color%} %B%{$fg[cyan]%}[%~%B]%b 
->"
+prompt spaceship
+#RPROMPT=\$vcs_info_msg_0_
+#export PS1="%{$fg_bold[blue]%}%3~ ${gitBranch}${sshConn}%{$reset_color%}%}> "
