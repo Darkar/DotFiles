@@ -9,7 +9,6 @@ alias vim='nvim'
 autoload -U compinit; compinit
 autoload colors; colors
 autoload -Uz vcs_info
-autoload -U promptinit; promptinit
 
 # Options
 setopt correctall
@@ -46,6 +45,6 @@ export EDITOR=/usr/bin/nvim
 export HISTFILE SAVEHIST
 
 #Prompt
-prompt spaceship
+eval "$(starship init zsh)"
 #RPROMPT=\$vcs_info_msg_0_
 #export PS1="%{$fg_bold[blue]%}%3~ ${gitBranch}${sshConn}%{$reset_color%}%}> "
