@@ -5,9 +5,9 @@
 set $mod Mod4
 set $alt Mod1
 
-set $TERMINAL alacritty
+set $TERMINAL kitty
 
-# Déplacement d'une fenêtre en modse floating
+# Déplacement d'une fenêtre en mode floating
 floating_modifier $mod
 
 #bindsym $mod+button1 move left
@@ -19,18 +19,18 @@ bindsym $mod+l exec $HOME/.config/i3/i3lock.sh
 # Lance un terminal
 bindsym $mod+Return exec $TERMINAL
 
-# Ouvrir les fichier de configuration avec geany
-bindsym $mod+c exec alacritty -e nvim $HOME/.config/i3/config $HOME/.config/polybar/config $HOME/.config/rofi/default.rasi $HOME/.config/rofi/menu.rasi $HOME/.config/dunst/dunstrc $HOME/.config/alacritty/alacritty.yml $HOME/.config/nvim/init.vim $HOME/.config/i3/i3lock.sh $HOME/.zshrc
+# Lance de PCManFM
+bindsym $mod+p exec pcmanfm
 
 # Screenshot
-bindsym Print exec scrot -u '%d-%m-%Y_%H-%M-%S.png' -e "mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`" # All screens
+bindsym Print exec maim -u -s | xclip -selection clipboard -t image/png && xclip -selection clipboard -t image/pn -o > $HOME/Images/Screenshots/$(date +%d-%m-%Y_%H-%M-%S).png
 
 # Ferme le fenêtre
 bindsym $mod+Q kill
 
 # Lancement des menus
-bindsym $mod+a exec --no-startup-id "rofi -show drun -theme default -run-shell-command '{terminal} -e {cmd}'"
-bindsym $mod+d exec --no-startup-id "rofi -show run -theme default -run-shell-command '{terminal} -e {cmd}'"
+bindsym $mod+a exec --no-startup-id "rofi -show drun -theme menu -run-shell-command '{terminal} -e {cmd}'"
+bindsym $mod+d exec --no-startup-id "rofi -show run -theme menu -run-shell-command '{terminal} -e {cmd}'"
 
 # Change le focus
 bindsym $mod+Left focus left
@@ -141,14 +141,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Gaps
-gaps inner 10
+gaps inner 6
 gaps outer 6
-
-# Suppression de la bordure
-for_window [class=".*"] border normal 0
-
-# Suppression de la bordure et de la barre de titre
-for_window [class="Brave"] border pixel 0
+# smart_gaps on
+smart_borders on
 
 # Titre des fenêtre
 #for_window [class=".*"] title_format "%title"
@@ -156,40 +152,34 @@ for_window [class="Brave"] border pixel 0
 # Alignement au centre du titre des fenêtre
 title_align center
 
+# Suppression de la bordure
+for_window [class=".*"] border pixel 0
+
 # class         		border  backgr. text    indicator child_border  
 client.focused_inactive #1E1E1E #1E1E1E #999999 #1E1E1E #1E1E1E                                                                        
 client.unfocused        #1E1E1E #1E1E1E #999999 #1E1E1E #1E1E1E                                                                            
 client.focused          #1E1E1E #1E1E1E #ffffff #1E1E1E #1E1E1E  
 
 # Assignation des workspaces
-assign [class="Brave"] $ws1
-exec --no-startup-id brave
+exec --no-startup-id chromium
 
 assign [class="Code"] $ws3
-assign [class="rstudio-bin"] $ws3
-
-for_window [class="vmware"] move to workspace $ws4
 
 assign [class="discord"] $ws9
 exec --no-startup-id discord
 
 # Scraptchpad terminal
-bindsym $mod+t [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
-for_window [instance="dropdown"] move scratchpad
-for_window [instance="dropdown"] border pixel 5
-for_window [instance="dropdown"] resize set 1225 800
+for_window [class="DropdownTerminal"] move container to scratchpad 
+for_window [class="DropdownTerminal"] move scratchpad
+for_window [class="DropdownTerminal"] border pixel 0
+for_window [class="DropdownTerminal"] resize set 1225 800
+bindsym $mod+t scratchpad show
 
-# Scraptchpad shortkey
-bindsym $mod+k [instance="shortkey"] scratchpad show; [instance="shortkey"] move position center
-for_window [instance="shortkey"] move scratchpad
-for_window [instance="shortkey"] border pixel 5
-for_window [instance="shortkey"] resize set 891 900
-	
 # AUTORUN
-exec --no-startup-id dunst 
-exec --no-startup-id feh --randomize --bg-fill "$HOME/Images/Fond d'écrans/"
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id dunst 
+exec_always --no-startup-id feh --bg-fill "$HOME/.config/i3/background.jpg"
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-exec_always --no-startup-id xrandr --output HDMI2 --auto --primary --right-of eDP1
-exec --no-startup-id alacritty --config-file=$HOME/.config/alacritty/dropdown.yml
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id xrandr --output DP-2 --auto --primary --right-of HDMI-1
+exec_always --no-startup-id kitty --class "DropdownTerminal"
 exec --no-startup-id xkb-switch --i3

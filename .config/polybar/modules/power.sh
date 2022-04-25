@@ -11,14 +11,14 @@
 # - Give it exec priviledge, or chmod +x /path/to/power.sh
 # - Run it
 
-chosen=$(echo -e "[Annuler]\nDéconnexion\nEteindre\nRedémarrer" | rofi -dmenu -theme menu -i)
+chosen=$(echo -e " Annuler\n Déconnexion\n Eteindre\n Redémarrer" | rofi -dmenu -theme powermenu -i)
 # Info about some states are available here:
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
-if [[ $chosen = "Déconnexion" ]]; then
+if [[ $chosen = " Déconnexion" ]]; then
 	i3-msg exit
-elif [[ $chosen = "Eteindre" ]]; then
+elif [[ $chosen = " Eteindre" ]]; then
 	systemctl poweroff
-elif [[ $chosen = "Redémarrer" ]]; then
+elif [[ $chosen = " Redémarre" ]]; then
 	systemctl reboot
 fi

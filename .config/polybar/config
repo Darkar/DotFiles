@@ -17,45 +17,39 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222222
-background-alt = #222222
-;foreground = ${xrdb:color7:#222}
-foreground = #ffffff
-foreground-alt = #ffffff
-primary = #ffffff
+background = #11121d
+background-alt = #15161e
+foreground = #a9b1d6
+foreground-alt = #7c88c0
+primary = #8867c0
 secondary = #e60053
-alert = #333
+alert = #bd2c40
 
 [bar/main]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 32
 
-font-0 = Terminus (TTF):size=11;0
-font-1 = HackNerdFontMono:size=11;2
+font-0 = JetBrainsMono:style=ExtraBold:size=10;2
+font-1 = Font Awesome 6 Free:pixelsize=12;2
+font-2 = Font Awesome 6 Free Solid:pixelsize=12;2
+font-3 = Font Awesome 6 Brands:pixelsize=12;2
 
-background = #111111
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
 line-color = #000000
 
-border-top-size = 10
-border-left-size = 14
-border-right-size = 14
-border-bottom-size = 0
-border-color = #00000000
-
 padding-left = 1
 padding-right = 2
 
 module-margin-left = 0
-module-margin-right = 3
+module-margin-right = 5
 
 modules-left = i3
 modules-center = date
-modules-right = pulseaudio checkupdate vpn network-wired network-wireless battery power
+modules-right = tray pulseaudio vpn network cpu memory powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -75,17 +69,17 @@ label-mode-background = ${colors.primary}
 
 ; workspace icons
 ws-icon-active-font = 1
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-default = 
+ws-icon-0 = 1;I
+ws-icon-1 = 2;II
+ws-icon-2 = 3;III
+ws-icon-3 = 4;IV
+ws-icon-4 = 5;V
+ws-icon-5 = 6;VI
+ws-icon-6 = 7;VII
+ws-icon-7 = 8;IXX
+ws-icon-8 = 9;IX
+ws-icon-9 = 10;X
+ws-icon-default = 0
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
@@ -111,63 +105,32 @@ label-urgent-padding = 3
 ; Separator in between workspaces
 ; label-separator = |
 
-[module/mail]
-type = custom/script
-format-prefix = " "
-exec = python ~/.config/polybar/modules/mail.py
-tail = true
-label = %output%
-;format-underline = #57F2AA
-click-left = brave https://webmail.magnan.one
-
-[module/checkupdate]
-type = custom/script
-format-prefix = " "
-exec = checkupdates+aur | wc -l
-tail = true
-label = %output%
-;format-underline = #FFFFFF
-click-left = alacritty -e yay -Syyu
-interval=120
-
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
 ;format-underline = #ff6600
 label = %percentage_used%%
-
-[module/bluetooth]
-type = custom/script
-exec = ~/.config/polybar/modules/bluetooth.sh
-interval = 2
-click-left = exec ~/.config/polybar/modules/toggle_bluetooth.sh
-click-right = exec blueberry
-;format-underline = #ABCEDF
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #FDEE00
+format-prefix = " "
 label = %percentage%%
 
-[module/network-wired]
+[module/network]
 type = internal/network
-interface = enp4s0f1
+interface = eth0
 interval = 3.0
 
-label-connected = Connexion filaire [%local_ip%]
-label-connected-foreground = #eefafafa
-;label-disconnected = Aucune connexion
+label-connected =  %local_ip%
+label-disconnected = Aucune connexion
 label-disconnected-foreground = #66ffffff
 ;format-connected-underline = #B16761
 
-format-connected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<ramp-signal><label-connected>%{A} 
-;format-disconnected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<label-disconnected>%{A}
-ramp-signal-foreground = ${colors.foreground-alt}
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
 ; Worst
 ramp-signal-0 = " "
 ramp-signal-1 = " "
@@ -177,35 +140,12 @@ ramp-signal-4 = " "
 ; Best
 ramp-signal-5 = " "
 
-[module/network-wireless]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-
-label-connected = %essid% [%local_ip%]
-label-connected-foreground = #eefafafa
-;label-disconnected = Aucune connexion
-label-disconnected-foreground = #66ffffff
-;format-connected-underline = #B16761
-
-format-connected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<ramp-signal> <label-connected>%{A} 
-;format-disconnected = %{A1:$HOME/.config/polybar/modules/rofi-netctl.sh:}<label-disconnected>%{A}
-ramp-signal-foreground = ${colors.foreground-alt}
-; Worst
-ramp-signal-0 = " "
-ramp-signal-1 = " "
-ramp-signal-2 = " "
-ramp-signal-3 = " "
-ramp-signal-4 = " "
-; Best
-ramp-signal-5 = " "
-
 [module/vpn]
 type = custom/script
 interval = 3.0
 
-exec = if [ -d "/proc/sys/net/ipv4/conf/tun0" ]; then echo " VPN [$(ifconfig tun0 | awk '/inet / {print $2}')]" ;else echo " VPN OFF" ;fi
-click-left = "if [ -d '/proc/sys/net/ipv4/conf/tun0' ]; then gksu killall openvpn ;else gksu openvpn $HOME/Documents/VPN/dedie.ovpn ;fi"
+exec = $HOME/.config/polybar/modules/rofi-vpn.sh
+click-left = "$HOME/.config/polybar/modules/rofi-vpn.sh vpn"
 
 
 [module/date]
@@ -218,60 +158,10 @@ date-alt = "%d/%m/%Y"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = ""
 ;format-underline = #D92B54
 
 label = %date% %time%
-
-[module/battery]
-type = internal/battery
-
-full-at = 99
-
-battery = BAT0
-adapter = ADP1
-
-label-charging =  %percentage%%
-label-discharging =  %percentage%%
-label-full =  
-
-time-format = %H:%M
-
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-; Only applies if <bar-capacity> is used
-bar-capacity-width = 10
-
-; Only applies if <animation-charging> is used
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-; Framerate in milliseconds
-animation-charging-framerate = 750
-
-; Only applies if <animation-discharging> is used
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-; Framerate in milliseconds
-animation-discharging-framerate = 500
-
-poll-interval = 5
-
-;format-charging-underline = #FDEE00
-;format-discharging-underline = #FDEE00
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -284,13 +174,13 @@ label-muted =  Mute
 label-muted-foreground = ${colors.foreground-alt}
 
 bar-volume-width = 5
-bar-volume-foreground-0 = #0b8e81
-bar-volume-foreground-1 = #0b8e81
-bar-volume-foreground-2 = #0b8e81
-bar-volume-foreground-3 = #0b8e81
-bar-volume-foreground-4 = #0b8e81
-bar-volume-foreground-5 = #0b8e81
-bar-volume-foreground-6 = #0b8e81
+bar-volume-foreground-0 = ${colors.foreground-alt}
+bar-volume-foreground-1 = ${colors.foreground-alt}
+bar-volume-foreground-2 = ${colors.foreground-alt}
+bar-volume-foreground-3 = ${colors.foreground-alt}
+bar-volume-foreground-4 = ${colors.foreground-alt}
+bar-volume-foreground-5 = ${colors.foreground-alt}
+bar-volume-foreground-6 = ${colors.foreground-alt}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -302,7 +192,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 click-right = pavucontrol
 
-[module/power]
+[module/powermenu]
 type = custom/script
 exec = echo "  "
 click-left = exec ~/.config/polybar/modules/power.sh

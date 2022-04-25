@@ -1,15 +1,44 @@
-DotFiles
-========
- - conky : Moniteur système
- - i3 : Gestionnaire de fenêtres 
- - polybar : Barre pour i3 
- - Compton : Transparence pour i3
- - Autorandr : Configuration de l'affichage
- - Rofi: Lanceur d'applications
- - Dunst : Afficheur de notification
- - nvim : Editeur de texte/IDE
- - .Xdefaults : Fichier de configuration d'URxvt
- - .face : Image de l'avatar 
- - .zshrc : Fichier de configuration de ZSH
- - .vimrc : Fichier de configuration de vim 
- - .xinitrc : Fichier de démmarage de la session
+# DotFiles 
+
+## Description
+
+- Windowing system: X11
+- Window manager: i3
+- Wayland bar: Polybar
+- Notifications: Dunst
+- Terminal: Kitty
+- Application launcher: Rofi
+
+## Laptop
+
+### Battery notifications 
+
+>/etc/udev/rules.d/99-batify.rules
+
+```bash
+ACTION=="change", KERNEL=="BAT0", \
+SUBSYSTEM=="power_supply", \
+ATTR{status}=="Discharging", \
+ATTR{capacity}=="[0-9]", \
+IMPORT{program}="/usr/bin/xpub", \
+RUN+="/bin/su $env{XUSER} -c 'notify-send -u critical \"Batterie\" \"Il reste $attr{capacity}%\"'"
+
+ACTION=="change", KERNEL=="BAT0", \
+SUBSYSTEM=="power_supply", \
+ATTR{status}=="Charging", \
+ATTR{capacity}=="100", \
+IMPORT{program}="/usr/bin/xpub", \
+RUN+="/bin/su $env{XUSER} -c 'notify-send -u normal \"Batterie\" \"Charge terminé !\"'"
+
+SUBSYSTEM=="power_supply", ACTION=="change", \
+ENV{POWER_SUPPLY_ONLINE}=="0", ENV{POWER}="off", \
+OPTIONS+="last_rule", \
+IMPORT{program}="/usr/bin/xpub", \
+RUN+="/bin/su $env{XUSER} -c 'notify-send -u low \"Batterie\" \"Chargeur débranché !\"'"
+
+SUBSYSTEM=="power_supply", ACTION=="change", \
+ENV{POWER_SUPPLY_ONLINE}=="1", ENV{POWER}="on", \
+OPTIONS+="last_rule", \
+IMPORT{program}="/usr/bin/xpub", \
+RUN+="/bin/su $env{XUSER} -c 'notify-send -u low \"Batterie\" \"Chargeur branché !\"'"
+```
