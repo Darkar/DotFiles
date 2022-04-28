@@ -2,5 +2,5 @@
 output X11-1 mode 1920x1080@143.996002Hz
 
 # Background
-output * bg "$HOME/.config/sway/background.png" fill
+output * bg "$HOME/.config/sway/background.jpg" fill
 

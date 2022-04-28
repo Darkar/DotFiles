@@ -1,12 +1,15 @@
 # Lance un terminal
 bindsym $mod+Return exec $TERMINAL
 
+# Lance PCManFM
+bindsym $mod+p exec pcmanfm
+
 # Ferme la fenêtre
 bindsym $mod+Q kill
 
 # Lancement des menus 
-bindsym $mod+a exec --no-startup-id "wofi --show=drun"
-bindsym $mod+d exec --no-startup-id "wofi --show=run"
+bindsym $mod+a exec --no-startup-id "wofi --show=drun -theme $HOME/.config/wofi/menu.rasi"
+bindsym $mod+d exec --no-startup-id "wofi --show=run -theme $HOME/.config/wofi/menu.rasi"
 
 # Verrouille l'écran
 bindsym $mod+l exec swaylock -f --screenshots --effect-blur 5x4 -u

@@ -1,6 +1,6 @@
 # DotFiles 
 
-## Description
+## Applications
 
 - Operating system: ArchLinux
 - Windowing system: Wayland
@@ -9,6 +9,19 @@
 - Notifications: Mako
 - Terminal: Alacritty
 - Application launcher: Wofi
+- File manager: PCManFM
+- Editeur de fichier: LeadPad
+- Terminal monitor: bashtop
+
+## Theme
+
+- GTK:Flat Remix GTK Blue Dark
+- VS Code: Github Dark
+
+## Icons
+
+- GTK: Remix GTK Blue Dark
+- VS Code: Material Icon Theme
 
 ## Required
 
