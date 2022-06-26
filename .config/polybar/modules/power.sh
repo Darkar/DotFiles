@@ -19,6 +19,6 @@ if [[ $chosen = " Déconnexion" ]]; then
 	i3-msg exit
 elif [[ $chosen = " Eteindre" ]]; then
 	systemctl poweroff
-elif [[ $chosen = " Redémarre" ]]; then
+elif [[ $chosen = " Redémarrer" ]]; then
 	systemctl reboot
 fi
