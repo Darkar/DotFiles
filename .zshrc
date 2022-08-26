@@ -4,6 +4,7 @@
 alias ls='ls --color=auto'
 alias ll='ls -ll'
 alias vim='nvim'
+alias yy='yay -Syyu'
 
 # Autoload
 autoload -U compinit; compinit
@@ -41,6 +42,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757171'
 
 # Export
+export TERM=xterm
 export EDITOR=/usr/bin/nvim
 export HISTFILE SAVEHIST
 

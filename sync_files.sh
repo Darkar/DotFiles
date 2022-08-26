@@ -9,7 +9,8 @@ dotfiles=(
     ".config/waybar/"
     ".config/mako/"
     ".config/wofi/"
-    ".config/alacritty/"
+    ".config/kitty/"
+    ".config/nvim/"
     ".zshrc"
 )
 

@@ -9,7 +9,7 @@
 
 window#waybar {
   background-color: #11121d;
-  color: #a9b1d6;
+  color: #abb2bf;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -59,11 +59,11 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-  color: #ff6600;
+  color: #E0AF68;
 }
 
 #workspaces button.urgent {
-  color: #e06c75;
+  color: #E0AF68;
 }
 
 #cpu {

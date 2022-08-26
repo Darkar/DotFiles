@@ -7,5 +7,194 @@ set $mod Mod4
 set $alt Mod1
 set $TERMINAL kitty
 
-# Include config.d
-include $HOME/.config/sway/config.d/*
+# Lance un terminal
+bindsym $mod+Return exec $TERMINAL
+
+# Lance PCManFM
+bindsym $mod+p exec pcmanfm
+
+# Ferme la fenêtre
+bindsym $mod+Q kill
+
+# Lancement des menus 
+bindsym $mod+a exec --no-startup-id "wofi --show=drun -theme $HOME/.config/wofi/menu.rasi"
+bindsym $mod+d exec --no-startup-id "wofi --show=run -theme $HOME/.config/wofi/menu.rasi"
+
+# Verrouille l'écran
+bindsym $mod+l exec swaylock -f --screenshots --effect-blur 5x4 -u
+
+# Screenshot
+bindsym Print exec grimshot save area - | swappy -f -
+
+# Change le focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Déplacement de la fenêtre
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Mode horizontal
+bindsym $mod+h split h
+
+# Mode vertical
+bindsym $mod+v split v
+
+# Mode plein écran
+bindsym $mod+f fullscreen toggle
+
+# Change le layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# Activation du  tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Définition des workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+# Déplacement des workspace sur les autres écrans
+bindsym $alt+Left move workspace to output left
+bindsym $alt+Down move workspace to output down
+bindsym $alt+Up move workspace to output up
+bindsym $alt+Right move workspace to output right
+
+# Changement de workspace
+bindsym $mod+ampersand workspace $ws1
+bindsym $mod+eacute workspace $ws2
+bindsym $mod+quotedbl workspace $ws3
+bindsym $mod+apostrophe workspace $ws4
+bindsym $mod+parenleft workspace $ws5
+bindsym $mod+minus workspace $ws6
+bindsym $mod+egrave workspace $ws7
+bindsym $mod+underscore workspace $ws8
+bindsym $mod+ccedilla workspace $ws9
+bindsym $mod+agrave workspace $ws10
+
+# Change le focus des fenêtre du workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+eacute move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+egrave move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+ccedilla move container to workspace $ws9
+bindsym $mod+Shift+agrave move container to workspace $ws10
+
+# Rechargement du fichier de configuration
+bindsym $mod+Shift+R reload
+
+
+# Assignation des workspaces
+
+assign [class="Brave"] $ws1
+assign [class="code-oss"] $ws3
+for_window [class="Vmware"] move to workspace $ws4
+for_window [class = "^discord$" instance="^discord$"] move to workspace $ws9
+
+# Mode resize
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Activation du mode resize
+bindsym $mod+r mode "resize"
+
+# Dropdown terminal
+bindsym $mod+t scratchpad show
+
+# Déplacement d'une fenêtre en mode floating
+floating_modifier $mod
+
+# Gaps
+gaps inner 6
+gaps outer 6
+
+# smart_gaps on
+smart_borders on
+
+# Suppression de la barre de titre
+default_border none
+
+# Suppression de la bordure
+for_window [class=".*"] border pixel 0
+
+# Suppression de la bordure et de la barre de titre
+for_window [class="Brave"] border pixel 0
+for_window [class="Chromium"] border pixel 0
+for_window [class="obsidian"] border  pixel 0
+for_window [class="Dropdown Terminal"] border pixel 0
+
+# Dropdown terminal
+for_window [title="Dropdown Terminal"] move container to scratchpad  
+for_window [title="Dropdown Terminal"] border pixel 0
+
+# Alignement au centre du titre des fenêtre
+title_align center
+
+# class         		border  backgr. text    indicator child_border  
+client.focused_inactive #1F2428 #1E1E1E #999999 #1E1E1E #1E1E1E                                                                        
+client.unfocused        #1F2428 #1E1E1E #999999 #1E1E1E #1E1E1E                                                                            
+client.focused          #1F2428 #1E1E1E #ffffff #1E1E1E #1E1E1E  
+
+
+# Bar
+bar { 
+    swaybar_command waybar
+}
+
+# Keyboard
+
+input * xkb_layout "fr"
+input * xkb_numlock enabled
+
+# Screens
+output X11-1 mode 1920x1080@143.996002Hz
+
+# Background
+output * bg "$HOME/.config/sway/background.jpg" fill
+
+# AUTORUN
+
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec --no-startup-id brave
+exec --no-startup-id discord
+exec --no-startup-id mako
+exec --no-startup-id kitty --title "Dropdown Terminal"
