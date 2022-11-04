@@ -7,9 +7,9 @@
 - Window manager: Sway
 - Wayland bar: Waybar
 - Notifications: Mako
-- Terminal: Alacritty
+- Terminal: Kittyl
 - Application launcher: Wofi
-- File manager: PCManFM
+- File manager: Thunar
 - Editeur de fichier: LeadPad
 - Terminal monitor: bashtop
 

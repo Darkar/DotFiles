@@ -11,7 +11,7 @@ set $TERMINAL kitty
 bindsym $mod+Return exec $TERMINAL
 
 # Lance PCManFM
-bindsym $mod+p exec pcmanfm
+bindsym $mod+p exec thunar
 
 # Ferme la fenêtre
 bindsym $mod+Q kill
@@ -104,7 +104,8 @@ bindsym $mod+Shift+R reload
 
 # Assignation des workspaces
 
-assign [class="Brave"] $ws1
+#assign [class="Brave"] $ws1
+assign [class="google-chrome"] $ws1
 assign [class="code-oss"] $ws3
 for_window [class="Vmware"] move to workspace $ws4
 for_window [class = "^discord$" instance="^discord$"] move to workspace $ws9
@@ -158,7 +159,7 @@ for_window [class=".*"] border pixel 0
 
 # Suppression de la bordure et de la barre de titre
 for_window [class="Brave"] border pixel 0
-for_window [class="Chromium"] border pixel 0
+for_window [class="google-chrome"] border pixel 0
 for_window [class="obsidian"] border  pixel 0
 for_window [class="Dropdown Terminal"] border pixel 0
 
@@ -193,8 +194,9 @@ output * bg "$HOME/.config/sway/background.jpg" fill
 
 # AUTORUN
 
+exec_always "$HOME/.config/sway/scripts/gtk_theme.sh"
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec --no-startup-id brave
+exec --no-startup-id google-chrome-stable
 exec --no-startup-id discord
 exec --no-startup-id mako
 exec --no-startup-id kitty --title "Dropdown Terminal"

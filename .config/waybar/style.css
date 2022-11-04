@@ -55,7 +55,8 @@ window#waybar.hidden {
 
 
 #workspaces button:hover {
-  background-color: rgba(0, 0, 0, 0.2)
+  background-color: #000000;
+  opacity: 0.2;
 }
 
 #workspaces button.focused {
