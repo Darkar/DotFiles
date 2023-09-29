@@ -4,13 +4,13 @@
 
 - Operating system: ArchLinux
 - Windowing system: Wayland
-- Window manager: Sway
+- Window manager: Hyprland
 - Wayland bar: Waybar
 - Notifications: Mako
-- Terminal: Kittyl
+- Terminal: Kitty
 - Application launcher: Wofi
 - File manager: Thunar
-- Editeur de fichier: LeadPad
+- Editeur de fichier: Mousepad
 - Terminal monitor: bashtop
 
 ## Theme

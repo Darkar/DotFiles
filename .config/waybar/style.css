@@ -30,6 +30,7 @@ window#waybar.hidden {
 #memory,
 #custom-wofi,
 #custom-update,
+.custom-spotify,
 #tray {
   background-color: #1e222a;
   padding: 0 10px;
@@ -59,7 +60,7 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   color: #E0AF68;
 }
 
@@ -156,3 +157,8 @@ window#waybar.hidden {
     background-color: #e06c75;
     color: #1e222a;
 }
+
+
+.custom-spotify {
+  color: #61ad19;
+  }

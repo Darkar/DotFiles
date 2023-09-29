@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 # Alias général
+alias gui="Hyprland"
 alias ls='ls --color=auto'
 alias ll='ls -ll'
 alias vim='nvim'
@@ -37,8 +38,8 @@ zstyle ':vcs_info:git:*' formats       '[%b%u%c]'
 zstyle ':vcs_info:git:*' actionformats '[%b|%a%u%c]'
 
 #Zsh Plugin
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757171'
 
 # Export
@@ -50,3 +51,4 @@ export HISTFILE SAVEHIST
 eval "$(starship init zsh)"
 #RPROMPT=\$vcs_info_msg_0_
 #export PS1="%{$fg_bold[blue]%}%3~ ${gitBranch}${sshConn}%{$reset_color%}%}> "
+

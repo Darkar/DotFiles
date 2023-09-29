@@ -5,7 +5,7 @@
 OPTION="-v -r --delete-after"
 
 dotfiles=(
-    ".config/sway/"
+    ".config/hypr/"
     ".config/waybar/"
     ".config/mako/"
     ".config/wofi/"

@@ -11,10 +11,10 @@ if [ "$1" == "vpn" ]; then
     fi
 else
     if [ -d '/proc/sys/net/ipv4/conf/tun0' ]; then 
-        ip="\"VPN [$(/sbin/ifconfig tun0 | awk '/inet / {print $2}')]\""
+        ip="\" VPN [$(/sbin/ifconfig tun0 | awk '/inet / {print $2}')]\""
         echo '{"text": '"$ip"'}'
     else 
-        echo '{"text":"VPN"}'
+        echo '{"text":" VPN"}'
     fi
 fi
 

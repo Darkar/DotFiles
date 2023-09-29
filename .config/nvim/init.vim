@@ -4,22 +4,32 @@ call plug#begin()
  Plug 'kyazdani42/nvim-web-devicons'
  Plug 'kyazdani42/nvim-tree.lua'
  Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'lukas-reineke/indent-blankline.nvim'
  Plug 'norcalli/nvim-base16.lua'
  Plug 'norcalli/nvim-colorizer.lua'
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 set termguicolors
 
 " Lua
 lua << END
-vim.cmd[[colorscheme tokyonight]]
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 
-vim.cmd[[colorscheme tokyonight]]
+require("tokyonight").setup({
+  -- use the night style
+  style = "night",
+  -- disable italic for functions
+  styles = {
+    functions = {}
+  },
+  sidebars = { "qf", "vista_kind", "terminal", "packer" },
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  on_colors = function(colors)
+    colors.hint = colors.orange
+    colors.error = "#ff0000"
+  end
+})
 
 require('lualine').setup {
   options = {
@@ -53,7 +63,6 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   update_cwd = false,
   view = {
     width = 30,
-    height = 30,
     hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,

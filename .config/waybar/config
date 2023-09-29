@@ -1,26 +1,27 @@
 {
     "layer": "top",
     "position": "top",
-    "modules-left": ["sway/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "battery", "custom/powermenu"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": [""],
+    "modules-right": ["tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "battery", "clock", "custom/powermenu"],
     "height": 32,
-	"sway/workspaces": {
+	"hyprland/workspaces": {
 	"disable-scroll": true,
 	"all-outputs": false,
 	"numeric-first": true,
+	"on-click": "activate",
 	"format": "<span font='9'> {icon} </span>",
 		"format-icons": {
-		  "1": "I",
-		  "2": "II",
-		  "3": "III",
-		  "4": "IV",
-		  "5": "V",
-		  "6": "VI",
-		  "7": "VII",
-		  "8": "IIX",
-		  "9": "IX",
-		  "10": "X"
+            "1": "I",
+            "2": "II",
+            "3": "III",
+            "4": "IV",
+            "5": "V",
+            "6": "VI",
+            "7": "VII",
+            "8": "IIX",
+            "9": "IX",
+            "10": "X"
 		}
 	},
     "tray": {
@@ -53,7 +54,7 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-     "network#wireless": {
+    "network#wireless": {
         "interface": "wlp0*",
         "format-wifi": " {essid} ({signalStrength}%)",
         "format-disconnected": " Déconnecté",
@@ -61,7 +62,7 @@
         "on-click-right": "$HOME/.config/waybar/scripts/netctl.sh",
         "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}" 
     },  
-     "network#wired": {
+    "network#wired": {
         "interface": "enp*",
         "format-ethernet": " Filaire",
         "format-alt": " {ipaddr}/{cidr}",
@@ -70,7 +71,7 @@
         "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}" 
     },
     "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
+        "scroll-step": 5, 
         "format": "{icon} {volume}%",
         "format-muted": " Mute",
         "format-source": " {volume}%",
@@ -85,7 +86,7 @@
             "default": ["", "", ""]
         },
         "on-click": "amixer set Master toggle; pkill -x -RTMIN+11 waybar",
-        "on-click-right": "pavucontrol",
+        "on-click-right": "pavucontrol"
     },
     "custom/update": {
 		"format": " {}", 
@@ -94,7 +95,7 @@
 		"exec": "checkupdates+aur | wc -l"
     },
 	"custom/vpn": {
-		"format": "{icon} {}",
+		"format": "{}",
         "return-type": "json",
 		"exec": "$HOME/.config/waybar/scripts/vpn.sh",
         "on-click-right": "$HOME/.config/waybar/scripts/vpn.sh vpn",
@@ -105,5 +106,14 @@
 		"format": "    ", 
 		"tooltip": false,
 		"on-click": "$HOME/.config/waybar/scripts/powermenu.sh"
+    },
+    "custom/spotify": {
+        "format": " {}",
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.sh",
+        "return-type": "json",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-scroll-up": "playerctl -p spotify next",
+        "on-scroll-down": "playerctl -p spotify previous",
+        "exec-if": "pgrep spotfiy"
     }
 }
