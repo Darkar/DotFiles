@@ -2,13 +2,18 @@
 
 # Require rsync
 
+if ! command -v rsync &> /dev/null; then
+    echo "Rsync est requis !"
+    exit 1
+fi
+
 OPTION="-v -r --delete-after"
 
 dotfiles=(
     ".config/hypr/"
     ".config/waybar/"
     ".config/mako/"
-    ".config/wofi/"
+    ".config/rofi/"
     ".config/kitty/"
     ".config/nvim/"
     ".zshrc"

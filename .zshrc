@@ -4,8 +4,9 @@
 alias gui="Hyprland"
 alias ls='ls --color=auto'
 alias ll='ls -ll'
-alias vim='nvim'
 alias yy='yay -Syyu'
+alias vps='ssh rocky@magnan.one -p 2222'
+alias rpi='ssh jeremy@rpi'
 
 # Autoload
 autoload -U compinit; compinit
@@ -52,3 +53,4 @@ eval "$(starship init zsh)"
 #RPROMPT=\$vcs_info_msg_0_
 #export PS1="%{$fg_bold[blue]%}%3~ ${gitBranch}${sshConn}%{$reset_color%}%}> "
 
+alias a='arsenal'

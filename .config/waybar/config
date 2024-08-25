@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces"],
     "modules-center": [""],
-    "modules-right": ["tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "battery", "clock", "custom/powermenu"],
+    "modules-right": ["custom/spotify", "tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "clock", "custom/powermenu"],
     "height": 32,
 	"hyprland/workspaces": {
 	"disable-scroll": true,
@@ -19,7 +19,7 @@
             "5": "V",
             "6": "VI",
             "7": "VII",
-            "8": "IIX",
+            "8": "VIII",
             "9": "IX",
             "10": "X"
 		}
@@ -32,7 +32,7 @@
 	"format": " {:%H:%M}",
         "timezone": "Europe/Paris",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": " {:%H:%M | %d/%m/%Y}"
+        "format-alt": " {:%H:%M:%S | %d/%m/%Y}"
     },
     "cpu": {
         "format": " {usage}%"
@@ -50,14 +50,14 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-good": "",
+        "format-full": "100% ",
         "format-icons": ["", "", "", "", ""]
     },
     "network#wireless": {
         "interface": "wlp0*",
         "format-wifi": " {essid} ({signalStrength}%)",
-        "format-disconnected": " Déconnecté",
+        "format-disconnected": "",
         "format-alt": " {ipaddr}/{cidr}",
         "on-click-right": "$HOME/.config/waybar/scripts/netctl.sh",
         "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}" 
@@ -68,7 +68,8 @@
         "format-alt": " {ipaddr}/{cidr}",
         "format-linked": " {ifname} (Pas d'IP)",
         "format-disconnected": "",
-        "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}" 
+        "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}",
+        "on-click-right": "$HOME/.config/waybar/scripts/netctl.sh"
     },
     "pulseaudio": {
         "scroll-step": 5, 
@@ -92,7 +93,7 @@
 		"format": " {}", 
 		"tooltip": false,
 		"interval": 600,
-		"exec": "checkupdates+aur | wc -l"
+		"exec": "checkupdates | wc -l"
     },
 	"custom/vpn": {
 		"format": "{}",
@@ -109,11 +110,20 @@
     },
     "custom/spotify": {
         "format": " {}",
-        "exec": "$HOME/.config/waybar/scripts/mediaplayer.sh",
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.sh --player spotify",
         "return-type": "json",
         "on-click": "playerctl -p spotify play-pause",
         "on-scroll-up": "playerctl -p spotify next",
         "on-scroll-down": "playerctl -p spotify previous",
         "exec-if": "pgrep spotfiy"
+    },
+    "custom/audioshare": {
+		"format": "{}",
+        "exec": "$HOME/.config/waybar/scripts/.venv/bin/python $HOME/.config/waybar/scripts/audioshare.py noexec",
+        "return-type": "json",
+		"tooltip": false,
+        "interval": 5,
+		"on-click": "$HOME/.config/waybar/scripts/.venv/bin/python $HOME/.config/waybar/scripts/audioshare.py exec",
+        "format-icons": ["OFF","ON"]
     }
 }

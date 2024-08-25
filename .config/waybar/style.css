@@ -1,4 +1,3 @@
-
 * {
     border: none;
     border-radius: 0;
@@ -15,7 +14,7 @@ window#waybar {
 }
 
 window#waybar.hidden {
-  opacity: 1;
+  opacity: 0;
 }
 
 #workspaces,
@@ -30,6 +29,7 @@ window#waybar.hidden {
 #memory,
 #custom-wofi,
 #custom-update,
+#custom-audioshare,
 .custom-spotify,
 #tray {
   background-color: #1e222a;
@@ -69,7 +69,7 @@ window#waybar.hidden {
 }
 
 #cpu {
-   color: #56b6c2;
+  color: #56b6c2;
 }
 
 #memory {
@@ -158,7 +158,10 @@ window#waybar.hidden {
     color: #1e222a;
 }
 
-
 .custom-spotify {
-  color: #61ad19;
-  }
+  color: #1db954;
+}
+
+#custom-audioshare {
+  color: #1db954;
+}

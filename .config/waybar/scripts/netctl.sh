@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-choice=`find /etc/netctl -maxdepth 1 -type f -printf "%f\n" | wofi --dmenu`;
-choice="Désactivé le wifi"
+choice=`find /etc/netctl -maxdepth 1 -type f -printf "%f\n" | rofi -dmenu -theme $HOME/.config/rofi/list.rasi -p "🌩 "`;
 if [ -n "$choice" ]; then
-  wofi --conf=$HOME/.config/wofi/config.password --style=$HOME/.config/wofi/style.password.css | sudo -S netctl switch-to $choice;
+  pass=$(rofi -dmenu -password -theme $HOME/.config/rofi/get.rasi -p "🔑 ")
+  if [ "$?" -eq 0 ]; then
+    echo "$pass" | sudo -S netctl switch-to $choice;
+  fi
 fi
