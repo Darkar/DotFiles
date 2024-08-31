@@ -8,7 +8,7 @@
 - Wayland bar: Waybar
 - Notifications: Mako
 - Terminal: Kitty
-- Application launcher: Wofi
+- Application launcher: Rofi
 - File manager: Thunar
 - Editeur de fichier: Mousepad
 - Terminal monitor: bashtop
@@ -17,6 +17,7 @@
 
 - GTK:Flat Remix GTK Blue Dark
 - VS Code: Github Dark
+- Grub: Arch (GRUB_THEME="/boot/grub/themes/arch/theme.txt")
 
 ## Icons
 

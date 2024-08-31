@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directory="~/.config/hypr/img/backgrounds/"
+directory="$HOME/.config/hypr/img/backgrounds/"
 monitor=`hyprctl monitors | grep Monitor | awk '{print $2}'`
 
 for mon in $monitor;do

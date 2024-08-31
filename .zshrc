@@ -4,10 +4,9 @@
 alias gui="Hyprland"
 alias ls='ls --color=auto'
 alias ll='ls -ll'
+alias vim='nvim'
 alias yy='yay -Syyu'
 alias vps='ssh rocky@magnan.one -p 2222'
-alias rpi='ssh jeremy@rpi'
-
 # Autoload
 autoload -U compinit; compinit
 autoload colors; colors

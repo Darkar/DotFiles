@@ -3,7 +3,7 @@ call plug#begin()
  Plug 'nvim-lualine/lualine.nvim'
  Plug 'kyazdani42/nvim-web-devicons'
  Plug 'kyazdani42/nvim-tree.lua'
- Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+ Plug 'akinsho/bufferline.nvim'
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'lukas-reineke/indent-blankline.nvim'
  Plug 'norcalli/nvim-base16.lua'
@@ -41,13 +41,7 @@ require'nvim-web-devicons'.has_loaded()
 
 require("bufferline").setup{}
 
-require'colorizer'.setup()
-
-require("indent_blankline").setup {
-    -- for example, context is off by default, use this to turn it on
-    show_current_context = true,
-    show_current_context_start = true,
-}
+require("ibl").setup()
 
 require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   auto_reload_on_write = true,

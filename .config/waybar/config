@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces"],
     "modules-center": [""],
-    "modules-right": ["custom/spotify", "tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "custom/update", "clock", "custom/powermenu"],
+    "modules-right": ["custom/spotify", "tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "battery", "custom/update", "clock", "custom/powermenu"],
     "height": 32,
 	"hyprland/workspaces": {
 	"disable-scroll": true,
