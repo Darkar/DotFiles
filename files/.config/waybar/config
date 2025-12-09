@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["hyprland/workspaces"],
     "modules-center": [""],
-    "modules-right": ["custom/spotify", "tray", "pulseaudio", "network#wired", "network#wireless", "custom/vpn", "battery", "custom/update", "clock", "custom/powermenu"],
+    "modules-right": ["custom/spotify", "tray", "pulseaudio", "network#wired", "network#wired_station", "network#wireless", "custom/vpn", "battery", "custom/update", "clock", "custom/powermenu"],
     "height": 32,
 	"hyprland/workspaces": {
 	"disable-scroll": true,
@@ -50,7 +50,7 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{icon} {time}",
-        "format-good": "",
+        "format-good": "{icon} {capacity}%",
         "format-full": "100% ",
         "format-icons": ["", "", "", "", ""]
     },
@@ -58,18 +58,27 @@
         "interface": "wlp0*",
         "format-wifi": " {essid} ({signalStrength}%)",
         "format-disconnected": "",
+        "format-disabled": "",
         "format-alt": " {ipaddr}/{cidr}",
-        "on-click-right": "$HOME/.config/waybar/scripts/netctl.sh",
         "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}" 
     },  
     "network#wired": {
-        "interface": "enp*",
+        "interface": "enp0*",
         "format-ethernet": " Filaire",
         "format-alt": " {ipaddr}/{cidr}",
         "format-linked": " {ifname} (Pas d'IP)",
         "format-disconnected": "",
-        "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}",
-        "on-click-right": "$HOME/.config/waybar/scripts/netctl.sh"
+        "format-disabled": "",
+        "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}"
+    },
+    "network#wired_station": {
+        "interface": "enp58s0u1u4",
+        "format-ethernet": " Filaire",
+        "format-alt": " {ipaddr}/{cidr}",
+        "format-linked": " {ifname} (Pas d'IP)",
+        "format-disconnected": "",
+        "format-disabled": "",
+        "tooltip-format": "Upload {bandwidthUpBits}\nDownloads {bandwidthDownBits}"
     },
     "pulseaudio": {
         "scroll-step": 5, 
@@ -93,7 +102,7 @@
 		"format": " {}", 
 		"tooltip": false,
 		"interval": 600,
-		"exec": "checkupdates | wc -l"
+		"exec": "echo $(( $(checkupdates | wc -l) + $(yay -Qua | wc -l) ))"
     },
 	"custom/vpn": {
 		"format": "{}",

@@ -35,7 +35,7 @@
 
 ### Battery notifications 
 
->/etc/udev/rules.d/99-batify.rules
+> /etc/udev/rules.d/99-batify.rules
 
 ```bash
 ACTION=="change", KERNEL=="BAT0", \

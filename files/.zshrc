@@ -4,9 +4,12 @@
 alias gui="Hyprland"
 alias ls='ls --color=auto'
 alias ll='ls -ll'
-alias vim='nvim'
 alias yy='yay -Syyu'
 alias vps='ssh rocky@magnan.one -p 2222'
+alias mvps='ssh rocky@mail.magnan.one -p 2222'
+alias rpi='ssh jeremy@rpi'
+alias tf='terraform'
+alias k='kubectl'
 # Autoload
 autoload -U compinit; compinit
 autoload colors; colors
@@ -44,12 +47,17 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#757171'
 
 # Export
 export TERM=xterm
-export EDITOR=/usr/bin/nvim
+export PATH=$PATH:$HOME/.local/bin
+export EDITOR=/usr/bin/vim
 export HISTFILE SAVEHIST
+export KUBECONFIG=~/.kube/config
 
 #Prompt
 eval "$(starship init zsh)"
 #RPROMPT=\$vcs_info_msg_0_
 #export PS1="%{$fg_bold[blue]%}%3~ ${gitBranch}${sshConn}%{$reset_color%}%}> "
 
-alias a='arsenal'
+source <(kubectl completion zsh)
+source <(fzf --zsh)
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit
